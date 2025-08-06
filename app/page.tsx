@@ -43,6 +43,9 @@ export default function HomePage() {
               >
                 HOW IT WORKS
               </Link>
+              <Link href="/blog" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+                BLOG
+              </Link>
               <Link href="/contact" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
                 CONTACT
               </Link>
