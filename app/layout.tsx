@@ -4,9 +4,28 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: "Dispatching.Pro - Professional Truck Dispatch Services",
+  description: "Professional dispatch services for Dry Van & Reefer carriers running USA Interstate and Cross-Border freight. 24/7 support, higher rates, no contracts.",
+  keywords: "truck dispatch, freight dispatch, dry van, reefer, cross border, USA interstate, trucking services",
+  authors: [{ name: "Dispatching.Pro" }],
+  viewport: "width=device-width, initial-scale=1",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Dispatching.Pro - Professional Truck Dispatch Services",
+    description: "Professional dispatch services for Dry Van & Reefer carriers. 24/7 support, higher rates, no contracts.",
+    url: "https://dispatching.pro",
+    siteName: "Dispatching.Pro",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dispatching.Pro - Professional Truck Dispatch Services",
+    description: "Professional dispatch services for Dry Van & Reefer carriers. 24/7 support, higher rates, no contracts.",
+  },
 }
 
 export default function RootLayout({
