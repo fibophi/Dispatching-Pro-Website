@@ -41,7 +41,6 @@ const blogPost = {
   date: "January 15, 2025",
   author: "Mike Rodriguez",
   readTime: "5 min read",
-  image: "/revenue-truck.png",
 }
 
 const relatedPosts = [
@@ -101,7 +100,7 @@ export default function BlogPostPage() {
                 HOW IT WORKS
               </Link>
               <Link href="/blog" className="text-white font-semibold border-b-2 border-yellow-400 pb-1">
-                BLOG
+                NEWS
               </Link>
               <Link href="/contact" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
                 CONTACT
@@ -122,7 +121,7 @@ export default function BlogPostPage() {
             className="inline-flex items-center text-yellow-400 hover:text-yellow-300 font-semibold transition-colors"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Blog
+            Back to News
           </Link>
         </div>
       </section>
@@ -152,19 +151,6 @@ export default function BlogPostPage() {
                 Share Article
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Image */}
-      <section className="pb-16 bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <img
-              src={blogPost.image || "/placeholder.svg"}
-              alt={blogPost.title}
-              className="w-full h-64 md:h-96 object-cover rounded-lg"
-            />
           </div>
         </div>
       </section>
@@ -294,7 +280,7 @@ export default function BlogPostPage() {
                 </li>
                 <li>
                   <Link href="/blog" className="hover:text-yellow-400 transition-colors">
-                    Blog
+                    News
                   </Link>
                 </li>
                 <li>
