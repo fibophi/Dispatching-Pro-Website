@@ -40,6 +40,9 @@ return (
             <Link href="/how-it-works" className="text-white font-semibold border-b-2 border-yellow-400 pb-1">
               HOW IT WORKS
             </Link>
+            <Link href="/blog" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+              BLOG
+            </Link>
             <Link href="/contact" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
               CONTACT
             </Link>
