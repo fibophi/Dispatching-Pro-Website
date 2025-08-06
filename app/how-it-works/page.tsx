@@ -12,134 +12,130 @@ export const metadata = {
 }
 
 export default function HowItWorksPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  return (
-    <div className="min-h-screen bg-gray-900">
-      {/* Header */}
-      <header className="bg-gray-800 border-b-2 border-yellow-400 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="bg-yellow-400 p-2 rounded-lg">
-                <Truck className="h-7 w-7 text-gray-900" />
-              </div>
-              <div>
-                <span className="text-2xl font-black text-white tracking-tight">DISPATCHING</span>
-                <span className="text-2xl font-black text-yellow-400">.PRO</span>
-              </div>
+return (
+  <div className="min-h-screen bg-gray-900">
+    {/* Header */}
+    <header className="bg-gray-800 border-b-2 border-yellow-400 sticky top-0 z-50">
+      <div className="container mx-auto px-4 py-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="bg-yellow-400 p-2 rounded-lg">
+              <Truck className="h-7 w-7 text-gray-900" />
             </div>
-            
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+            <div>
+              <span className="text-2xl font-black text-white tracking-tight">DISPATCHING</span>
+              <span className="text-2xl font-black text-yellow-400">.PRO</span>
+            </div>
+          </div>
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            <Link href="/" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+              HOME
+            </Link>
+            <Link href="/services" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+              SERVICES
+            </Link>
+            <Link
+              href="/why-choose-us"
+              className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors"
+            >
+              WHY US
+            </Link>
+            <Link href="/how-it-works" className="text-white font-semibold border-b-2 border-yellow-400 pb-1">
+              HOW IT WORKS
+            </Link>
+            <Link href="/blog" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+              NEWS
+            </Link>
+            <Link href="/contact" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+              CONTACT
+            </Link>
+          </nav>
+          
+          {/* Desktop CTA Button */}
+          <Button className="hidden md:block bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6">
+            <Link href="/contact">GET STARTED</Link>
+          </Button>
+          
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-white p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        
+        {/* Mobile Navigation Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 border-t border-gray-700">
+            <nav className="flex flex-col space-y-4 mt-4">
+              <Link 
+                href="/" 
+                className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 HOME
               </Link>
-              <Link href="/services" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+              <Link 
+                href="/services" 
+                className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 SERVICES
               </Link>
               <Link
                 href="/why-choose-us"
-                className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors"
+                className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 WHY US
               </Link>
-              <Link href="/how-it-works" className="text-white font-semibold border-b-2 border-yellow-400 pb-1">
+              <Link
+                href="/how-it-works"
+                className="text-white font-semibold py-2 border-l-4 border-yellow-400 pl-4"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 HOW IT WORKS
               </Link>
-              <Link href="/blog" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+              <Link 
+                href="/blog" 
+                className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 NEWS
               </Link>
-              <Link href="/contact" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+              <Link 
+                href="/contact" 
+                className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 CONTACT
               </Link>
+              <div className="pt-4 pl-4">
+                <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6 w-full">
+                  <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>GET STARTED</Link>
+                </Button>
+              </div>
             </nav>
-            
-            {/* Desktop CTA Button */}
-            <Button className="hidden md:flex bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6">
-              <Link href="/contact">GET STARTED</Link>
-            </Button>
-            
-            {/* Mobile Menu Button */}
-            <button 
-              className="md:hidden text-white p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
           </div>
-          
-          {/* Mobile Navigation Menu */}
-          {isMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-gray-700">
-              <nav className="flex flex-col space-y-4 mt-4">
-                <Link 
-                  href="/" 
-                  className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  HOME
-                </Link>
-                <Link 
-                  href="/services" 
-                  className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  SERVICES
-                </Link>
-                <Link 
-                  href="/why-choose-us" 
-                  className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  WHY US
-                </Link>
-                <Link 
-                  href="/how-it-works" 
-                  className="text-white font-semibold py-2 border-l-4 border-yellow-400 pl-4"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  HOW IT WORKS
-                </Link>
-                <Link 
-                  href="/blog" 
-                  className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  NEWS
-                </Link>
-                <Link 
-                  href="/contact" 
-                  className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  CONTACT
-                </Link>
-                <div className="pt-4">
-                  <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3">
-                    <Link href="/contact" onClick={() => setIsMenuOpen(false)}>GET STARTED</Link>
-                  </Button>
-                </div>
-              </nav>
-            </div>
-          )}
-        </div>
-      </header>
+        )}
+      </div>
+    </header>
 
     {/* Hero Section */}
-    <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 md:py-16">
+    <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-6xl font-black mb-4 md:mb-6 text-white">
+          <h1 className="text-4xl md:text-6xl font-black mb-6 text-white">
             HOW IT <span className="text-yellow-400">WORKS</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
+          <p className="text-xl text-gray-300 mb-8">
             Getting started is simple. From first contact to your first load, we'll have you up and running in no
             time.
           </p>
@@ -265,17 +261,12 @@ export default function HowItWorksPage() {
 
           {/* Mobile Layout */}
           <div className="lg:hidden mt-8">
-            <div className="space-y-4">
+            <div className="space-y-6">
               {/* Contact Us Mobile */}
-              <div className="mx-4">
-                <div className="text-center mb-2">
-                  <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-black">
-                    SAY HI
-                  </span>
-                </div>
-                <Card className="bg-gray-900 border-2 border-blue-500">
-                  <CardContent className="p-4">
-                    <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4">
+                <Card className="bg-gray-900 border-2 border-blue-500 flex-1 h-24">
+                  <CardContent className="p-4 h-full">
+                    <div className="flex items-center gap-4 h-full">
                       <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
                         <Phone className="h-6 w-6 text-white" />
                       </div>
@@ -294,21 +285,19 @@ export default function HowItWorksPage() {
               </div>
 
               {/* READY Mobile */}
-              <div className="mx-4">
-                <div className="text-center mb-2">
-                  <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-black">
-                    READY
-                  </span>
+              <div className="flex items-center gap-4">
+                <div className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-black flex-shrink-0">
+                  READY
                 </div>
-                <Card className="bg-gray-900 border-2 border-red-500">
-                  <CardContent className="p-4">
-                    <div className="flex items-center gap-4">
+                <Card className="bg-gray-900 border-2 border-red-500 flex-1 h-24">
+                  <CardContent className="p-4 h-full">
+                    <div className="flex items-center gap-4 h-full">
                       <div className="bg-red-500 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
                         <FileText className="h-6 w-6 text-white" />
                       </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-black text-white">QUICK SETUP</h3>
-                        <p className="text-gray-300 text-sm">Provide your details in under 10 minutes</p>
+                        <p className="text-gray-300 text-sm">Provide your details</p>
                       </div>
                     </div>
                   </CardContent>
@@ -320,15 +309,13 @@ export default function HowItWorksPage() {
               </div>
 
               {/* SET Mobile */}
-              <div className="mx-4">
-                <div className="text-center mb-2">
-                  <span className="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-black">
-                    SET
-                  </span>
+              <div className="flex items-center gap-4">
+                <div className="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-black flex-shrink-0">
+                  SET
                 </div>
-                <Card className="bg-gray-900 border-2 border-yellow-400">
-                  <CardContent className="p-4">
-                    <div className="flex items-center gap-4">
+                <Card className="bg-gray-900 border-2 border-yellow-400 flex-1 h-24">
+                  <CardContent className="p-4 h-full">
+                    <div className="flex items-center gap-4 h-full">
                       <div className="bg-yellow-400 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
                         <TrendingUp className="h-6 w-6 text-gray-900" />
                       </div>
@@ -346,15 +333,13 @@ export default function HowItWorksPage() {
               </div>
 
               {/* GO! Mobile */}
-              <div className="mx-4">
-                <div className="text-center mb-2">
-                  <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-black">
-                    GO!
-                  </span>
+              <div className="flex items-center gap-4">
+                <div className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-black flex-shrink-0">
+                  GO!
                 </div>
-                <Card className="bg-gray-900 border-2 border-green-500">
-                  <CardContent className="p-4">
-                    <div className="flex items-center gap-4">
+                <Card className="bg-gray-900 border-2 border-green-500 flex-1 h-24">
+                  <CardContent className="p-4 h-full">
+                    <div className="flex items-center gap-4 h-full">
                       <div className="bg-green-500 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
                         <Rocket className="h-6 w-6 text-white" />
                       </div>
