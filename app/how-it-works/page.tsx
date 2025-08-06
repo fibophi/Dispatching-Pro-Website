@@ -24,6 +24,8 @@ return (
               <span className="text-2xl font-black text-yellow-400">.PRO</span>
             </div>
           </div>
+          
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             <Link href="/" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
               HOME
@@ -47,21 +49,59 @@ return (
               CONTACT
             </Link>
           </nav>
-          <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6">
+          
+          {/* Desktop CTA Button */}
+          <Button className="hidden md:flex bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6">
             <Link href="/contact">GET STARTED</Link>
           </Button>
+          
+          {/* Mobile Menu Button */}
+          <button className="md:hidden text-white p-2">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        
+        {/* Mobile Navigation Menu */}
+        <div className="md:hidden mt-4 pb-4 border-t border-gray-700">
+          <nav className="flex flex-col space-y-4 mt-4">
+            <Link href="/" className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors">
+              HOME
+            </Link>
+            <Link href="/services" className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors">
+              SERVICES
+            </Link>
+            <Link href="/why-choose-us" className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors">
+              WHY US
+            </Link>
+            <Link href="/how-it-works" className="text-white font-semibold py-2 border-l-4 border-yellow-400 pl-4">
+              HOW IT WORKS
+            </Link>
+            <Link href="/blog" className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors">
+              NEWS
+            </Link>
+            <Link href="/contact" className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors">
+              CONTACT
+            </Link>
+            <div className="pt-4">
+              <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3">
+                <Link href="/contact">GET STARTED</Link>
+              </Button>
+            </div>
+          </nav>
         </div>
       </div>
     </header>
 
     {/* Hero Section */}
-    <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-16">
+    <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 md:py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-black mb-6 text-white">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-black mb-4 md:mb-6 text-white">
             HOW IT <span className="text-yellow-400">WORKS</span>
           </h1>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
             Getting started is simple. From first contact to your first load, we'll have you up and running in no
             time.
           </p>
@@ -187,12 +227,17 @@ return (
 
           {/* Mobile Layout */}
           <div className="lg:hidden mt-8">
-            <div className="space-y-6">
+            <div className="space-y-4">
               {/* Contact Us Mobile */}
-              <div className="flex items-center gap-4">
-                <Card className="bg-gray-900 border-2 border-blue-500 flex-1 h-24">
-                  <CardContent className="p-4 h-full">
-                    <div className="flex items-center gap-4 h-full">
+              <div className="mx-4">
+                <div className="text-center mb-2">
+                  <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-black">
+                    SAY HI
+                  </span>
+                </div>
+                <Card className="bg-gray-900 border-2 border-blue-500">
+                  <CardContent className="p-4">
+                    <div className="flex items-center gap-4">
                       <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
                         <Phone className="h-6 w-6 text-white" />
                       </div>
@@ -211,19 +256,21 @@ return (
               </div>
 
               {/* READY Mobile */}
-              <div className="flex items-center gap-4">
-                <div className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-black flex-shrink-0">
-                  READY
+              <div className="mx-4">
+                <div className="text-center mb-2">
+                  <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-black">
+                    READY
+                  </span>
                 </div>
-                <Card className="bg-gray-900 border-2 border-red-500 flex-1 h-24">
-                  <CardContent className="p-4 h-full">
-                    <div className="flex items-center gap-4 h-full">
+                <Card className="bg-gray-900 border-2 border-red-500">
+                  <CardContent className="p-4">
+                    <div className="flex items-center gap-4">
                       <div className="bg-red-500 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
                         <FileText className="h-6 w-6 text-white" />
                       </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-black text-white">QUICK SETUP</h3>
-                        <p className="text-gray-300 text-sm">Provide your details</p>
+                        <p className="text-gray-300 text-sm">Provide your details in under 10 minutes</p>
                       </div>
                     </div>
                   </CardContent>
@@ -235,13 +282,15 @@ return (
               </div>
 
               {/* SET Mobile */}
-              <div className="flex items-center gap-4">
-                <div className="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-black flex-shrink-0">
-                  SET
+              <div className="mx-4">
+                <div className="text-center mb-2">
+                  <span className="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-black">
+                    SET
+                  </span>
                 </div>
-                <Card className="bg-gray-900 border-2 border-yellow-400 flex-1 h-24">
-                  <CardContent className="p-4 h-full">
-                    <div className="flex items-center gap-4 h-full">
+                <Card className="bg-gray-900 border-2 border-yellow-400">
+                  <CardContent className="p-4">
+                    <div className="flex items-center gap-4">
                       <div className="bg-yellow-400 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
                         <TrendingUp className="h-6 w-6 text-gray-900" />
                       </div>
@@ -259,13 +308,15 @@ return (
               </div>
 
               {/* GO! Mobile */}
-              <div className="flex items-center gap-4">
-                <div className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-black flex-shrink-0">
-                  GO!
+              <div className="mx-4">
+                <div className="text-center mb-2">
+                  <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-black">
+                    GO!
+                  </span>
                 </div>
-                <Card className="bg-gray-900 border-2 border-green-500 flex-1 h-24">
-                  <CardContent className="p-4 h-full">
-                    <div className="flex items-center gap-4 h-full">
+                <Card className="bg-gray-900 border-2 border-green-500">
+                  <CardContent className="p-4">
+                    <div className="flex items-center gap-4">
                       <div className="bg-green-500 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
                         <Rocket className="h-6 w-6 text-white" />
                       </div>
