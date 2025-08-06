@@ -1,14 +1,14 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Truck, ArrowLeft, TrendingUp, Clock, Users, Shield, Phone, MessageSquare, Star } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Truck, ArrowLeft, CheckCircle, X, Phone, MessageSquare } from 'lucide-react'
 
 export const metadata = {
-  title: "Why Choose Us - Dispatching.Pro",
-  description: "Discover why hundreds of owner-operators trust us. 15% higher rates, 24/7 support, experienced team, and no long-term contracts.",
+  title: "Our Services - Dispatching.Pro",
+  description: "Choose from Basic, Premium, or Custom dispatch services. Pay-per-load to full fleet management solutions for dry van and reefer carriers.",
 }
 
-export default function WhyChooseUsPage() {
+export default function ServicesPage() {
 return (
   <div className="min-h-screen bg-gray-900">
     {/* Header */}
@@ -28,10 +28,13 @@ return (
             <Link href="/" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
               HOME
             </Link>
-            <Link href="/services" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+            <Link href="/services" className="text-white font-semibold border-b-2 border-yellow-400 pb-1">
               SERVICES
             </Link>
-            <Link href="/why-choose-us" className="text-white font-semibold border-b-2 border-yellow-400 pb-1">
+            <Link
+              href="/why-choose-us"
+              className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors"
+            >
               WHY US
             </Link>
             <Link
@@ -56,11 +59,10 @@ return (
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-black mb-6 text-white">
-            WHY CHOOSE <span className="text-yellow-400">US?</span>
+            OUR <span className="text-yellow-400">SERVICES</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8">
-            We're not just another dispatch service. We're your partners in success, dedicated to maximizing your
-            profits and minimizing your stress.
+            Choose the dispatch service that fits your operation. From pay-per-load to full fleet management.
           </p>
           <Link
             href="/"
@@ -73,43 +75,177 @@ return (
       </div>
     </section>
 
-    {/* Results Section */}
+    {/* Service Plans */}
     <section className="py-20 bg-gray-800">
+      <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Basic Plan */}
+            <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 transition-colors">
+              <CardHeader className="bg-gray-800 border-b border-gray-700">
+                <CardTitle className="text-3xl font-black text-white">BASIC</CardTitle>
+                <div className="text-4xl font-black text-yellow-400">PAY PER LOAD</div>
+                <p className="text-gray-400">Perfect for getting started</p>
+              </CardHeader>
+              <CardContent className="p-8">
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Load finding & booking</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Rate negotiation</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Load confirmation</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Basic support (business hours)</span>
+                  </li>
+                  <li className="flex items-center">
+                    <X className="h-5 w-5 text-gray-500 mr-3 flex-shrink-0" />
+                    <span className="text-gray-500">24/7 support</span>
+                  </li>
+                  <li className="flex items-center">
+                    <X className="h-5 w-5 text-gray-500 mr-3 flex-shrink-0" />
+                    <span className="text-gray-500">Paperwork handling</span>
+                  </li>
+                </ul>
+                <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black py-3">
+                  <Link href="/contact">GET STARTED</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Premium Plan */}
+            <Card className="bg-gray-900 border-2 border-yellow-400 relative">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <div className="bg-yellow-400 text-gray-900 px-6 py-2 rounded-full text-sm font-black">
+                  MOST POPULAR
+                </div>
+              </div>
+              <CardHeader className="bg-gray-800 border-b border-gray-700">
+                <CardTitle className="text-3xl font-black text-white">PREMIUM</CardTitle>
+                <div className="text-4xl font-black text-yellow-400">FULL SERVICE</div>
+                <p className="text-gray-400">Best for single-truck to 4 trucks</p>
+              </CardHeader>
+              <CardContent className="p-8">
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Everything in Basic</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">24/7 support & monitoring</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Complete paperwork handling</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Route optimization</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Fuel optimization</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Weekly performance reports</span>
+                  </li>
+                </ul>
+                <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black py-3">
+                  <Link href="/contact">GET STARTED</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Custom Plan */}
+            <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 transition-colors">
+              <CardHeader className="bg-gray-800 border-b border-gray-700">
+                <CardTitle className="text-3xl font-black text-white">CUSTOM</CardTitle>
+                <div className="text-4xl font-black text-yellow-400">FLEET SOLUTIONS</div>
+                <p className="text-gray-400">For 5+ trucks & fleets</p>
+              </CardHeader>
+              <CardContent className="p-8">
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Everything in Premium</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Dedicated dispatcher team</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Custom reporting dashboard</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Fleet management tools</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Priority load access</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Custom pricing structure</span>
+                  </li>
+                </ul>
+                <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black py-3">
+                  <Link href="/contact">CONTACT US</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Add-On Services */}
+    <section className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-black text-center mb-16 text-white">
-            PROVEN <span className="text-yellow-400">RESULTS</span>
+            ADD-ON <span className="text-yellow-400">SERVICES</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="bg-gray-900 border-2 border-yellow-400 text-center">
-              <CardContent className="p-8">
-                <div className="text-5xl font-black text-yellow-400 mb-4">15%</div>
-                <h3 className="text-xl font-black text-white mb-2">HIGHER RATES</h3>
-                <p className="text-gray-400">Average rate increase compared to load boards</p>
+            <Card className="bg-gray-800 border-2 border-gray-700 hover:border-yellow-400 transition-colors">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-black text-yellow-400 mb-4">FACTORING SETUP</h3>
+                <p className="text-gray-300 mb-4">We'll help you set up factoring with the best rates</p>
+                <p className="text-2xl font-bold text-white">$99</p>
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900 border-2 border-gray-700 text-center">
-              <CardContent className="p-8">
-                <div className="text-5xl font-black text-white mb-4">95%</div>
-                <h3 className="text-xl font-black text-white mb-2">LOAD ACCEPTANCE</h3>
-                <p className="text-gray-400">Our clients accept 95% of loads we find</p>
+            <Card className="bg-gray-800 border-2 border-gray-700 hover:border-yellow-400 transition-colors">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-black text-yellow-400 mb-4">PERMIT SERVICE</h3>
+                <p className="text-gray-300 mb-4">We handle all your permit needs</p>
+                <p className="text-2xl font-bold text-white">$49/permit</p>
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900 border-2 border-gray-700 text-center">
-              <CardContent className="p-8">
-                <div className="text-5xl font-black text-white mb-4">10%</div>
-                <h3 className="text-xl font-black text-white mb-2">DOWNTIME REDUCTION</h3>
-                <p className="text-gray-400">Average downtime reduction for our clients</p>
+            <Card className="bg-gray-800 border-2 border-gray-700 hover:border-yellow-400 transition-colors">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-black text-yellow-400 mb-4">FUEL CARDS</h3>
+                <p className="text-gray-300 mb-4">Best fuel card programs with discounts</p>
+                <p className="text-2xl font-bold text-white">FREE</p>
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900 border-2 border-gray-700 text-center">
-              <CardContent className="p-8">
-                <div className="text-5xl font-black text-white mb-4">24/7</div>
-                <h3 className="text-xl font-black text-white mb-2">SUPPORT</h3>
-                <p className="text-gray-400">Round-the-clock support when you need it</p>
+            <Card className="bg-gray-800 border-2 border-gray-700 hover:border-yellow-400 transition-colors">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-black text-yellow-400 mb-4">INSURANCE HELP</h3>
+                <p className="text-gray-300 mb-4">Connect with trusted insurance providers</p>
+                <p className="text-2xl font-bold text-white">FREE</p>
               </CardContent>
             </Card>
           </div>
@@ -117,217 +253,57 @@ return (
       </div>
     </section>
 
-    {/* Key Advantages */}
-    <section className="py-20 bg-gray-900">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-black text-center mb-16 text-white">
-            OUR <span className="text-yellow-400">ADVANTAGES</span>
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <div className="flex items-start space-x-6">
-                <div className="bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
-                  <TrendingUp className="h-8 w-8 text-gray-900" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-black text-white mb-4">HIGHER PAYING LOADS</h3>
-                  <p className="text-gray-300 text-lg">
-                    Our extensive broker network and negotiation expertise consistently secure rates 15% higher than
-                    typical load board rates. We know which brokers pay premium rates and how to get them.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-6">
-                <div className="bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
-                  <Clock className="h-8 w-8 text-gray-900" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-black text-white mb-4">24/7 AVAILABILITY</h3>
-                  <p className="text-gray-300 text-lg">
-                    Freight doesn't stop for weekends or holidays, and neither do we. Our team is available around the
-                    clock to handle emergencies, find loads, and keep your trucks moving.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-6">
-                <div className="bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
-                  <Users className="h-8 w-8 text-gray-900" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-black text-white mb-4">EXPERIENCED TEAM</h3>
-                  <p className="text-gray-300 text-lg">
-                    Our dispatchers have years of experience specifically in Dry Van and Reefer freight. We understand
-                    the nuances of temperature-controlled loads and cross-border requirements.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-8">
-              <div className="flex items-start space-x-6">
-                <div className="bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
-                  <Shield className="h-8 w-8 text-gray-900" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-black text-white mb-4">NO LONG-TERM CONTRACTS</h3>
-                  <p className="text-gray-300 text-lg">
-                    We earn your business every day. No lengthy contracts, no cancellation fees. If you're not happy
-                    with our service, you can walk away anytime with no penalties.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-6">
-                <div className="bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
-                  <Star className="h-8 w-8 text-gray-900" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-black text-white mb-4">PERSONALIZED SERVICE</h3>
-                  <p className="text-gray-300 text-lg">
-                    You're not just a number to us. We learn your preferences, your routes, and your business goals.
-                    Every load we book is chosen specifically for your operation.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-6">
-                <div className="bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
-                  <Truck className="h-8 w-8 text-gray-900" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-black text-white mb-4">SPECIALIZED EXPERTISE</h3>
-                  <p className="text-gray-300 text-lg">
-                    We focus exclusively on Dry Van and Reefer freight for USA Interstate and Cross-Border routes.
-                    This specialization means we know the best lanes, rates, and brokers in your market.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* Testimonials */}
+    {/* Equipment Types */}
     <section className="py-20 bg-gray-800">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-black text-center mb-16 text-white">
-            WHAT OUR CLIENTS <span className="text-yellow-400">SAY</span>
+            EQUIPMENT WE <span className="text-yellow-400">SPECIALIZE IN</span>
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gray-900 border-2 border-gray-700">
-              <CardContent className="p-8">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-6 italic">
-                  "Since switching to Dispatching.Pro, my revenue increased by 20%. They find loads I never would have
-                  found on my own, and the rates are consistently higher."
-                </p>
-                <div className="border-t border-gray-700 pt-4">
-                  <p className="font-bold text-white">Mike Rodriguez</p>
-                  <p className="text-gray-400">Owner-Operator, Dry Van</p>
-                </div>
-              </CardContent>
-            </Card>
-
+          <div className="grid md:grid-cols-2 gap-8">
             <Card className="bg-gray-900 border-2 border-yellow-400">
               <CardContent className="p-8">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-6 italic">
-                  "The 24/7 support is a game-changer. When I had a breakdown at 2 AM, they immediately found me a
-                  replacement load and handled all the broker communications."
-                </p>
-                <div className="border-t border-gray-700 pt-4">
-                  <p className="font-bold text-white">Sarah Johnson</p>
-                  <p className="text-gray-400">Fleet Owner, 3 Reefer Trucks</p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gray-900 border-2 border-gray-700">
-              <CardContent className="p-8">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-6 italic">
-                  "Professional, reliable, and they actually care about my success. I've tried other dispatch
-                  services, but none compare to the personal attention I get here."
-                </p>
-                <div className="border-t border-gray-700 pt-4">
-                  <p className="font-bold text-white">David Chen</p>
-                  <p className="text-gray-400">Owner-Operator, Cross-Border</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* Specialization */}
-    <section className="py-20 bg-gray-900">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-black text-center mb-16 text-white">
-            OUR <span className="text-yellow-400">SPECIALIZATION</span>
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <Card className="bg-gray-800 border-2 border-yellow-400">
-              <CardContent className="p-8">
-                <h3 className="text-3xl font-black text-yellow-400 mb-6">DRY VAN EXPERTISE</h3>
-                <ul className="space-y-4 text-gray-300">
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span>General freight, retail, and e-commerce loads</span>
+                <h3 className="text-3xl font-black text-yellow-400 mb-6">DRY VAN</h3>
+                <ul className="space-y-3 text-gray-300">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    General freight & consumer goods
                   </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span>Manufacturing and industrial equipment transport</span>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    Retail & e-commerce loads
                   </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span>High-volume lanes and dedicated routes</span>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    Manufacturing & industrial
                   </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span>Cross-border USA-Canada freight expertise</span>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    Cross-border USA-Canada
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-800 border-2 border-yellow-400">
+            <Card className="bg-gray-900 border-2 border-yellow-400">
               <CardContent className="p-8">
-                <h3 className="text-3xl font-black text-yellow-400 mb-6">REEFER MASTERY</h3>
-                <ul className="space-y-4 text-gray-300">
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span>Fresh produce from major growing regions</span>
+                <h3 className="text-3xl font-black text-yellow-400 mb-6">REEFER</h3>
+                <ul className="space-y-3 text-gray-300">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    Fresh produce & food products
                   </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span>Pharmaceuticals and medical supplies transport</span>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    Pharmaceuticals & medical
                   </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span>Frozen foods and temperature-critical cargo</span>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    Frozen & temperature-controlled
                   </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span>Multi-temperature and specialized reefer loads</span>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    High-value temperature-sensitive
                   </li>
                 </ul>
               </CardContent>
@@ -340,10 +316,10 @@ return (
     {/* CTA Section */}
     <section className="py-20 bg-gradient-to-r from-yellow-400 to-yellow-500">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl font-black mb-6 text-gray-900">READY TO EXPERIENCE THE DIFFERENCE?</h2>
+        <h2 className="text-4xl font-black mb-6 text-gray-900">READY TO GET STARTED?</h2>
         <p className="text-xl mb-8 text-gray-800 font-medium max-w-3xl mx-auto">
-          Join the hundreds of owner-operators and fleet owners who trust us to maximize their profits and minimize
-          their stress.
+          Choose your service level and start earning more with professional dispatch. No setup fees, no long-term
+          contracts.
         </p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <Button size="lg" className="bg-gray-900 hover:bg-gray-800 text-yellow-400 font-black px-10 py-4 text-xl">
