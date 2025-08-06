@@ -1,14 +1,14 @@
-'use client'
-
-import { useState } from 'react'
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Truck, Phone, Mail, MessageSquare, ArrowRight, CheckCircle, Clock, Users, TrendingUp } from 'lucide-react'
 
-export default function HomePage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+export const metadata = {
+  title: "Dispatching.Pro - Professional Truck Dispatch Services",
+  description: "Professional dispatch services for Dry Van & Reefer carriers running USA Interstate and Cross-Border freight. 24/7 support, higher rates, no contracts.",
+}
 
+export default function HomePage() {
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Header */}
@@ -24,8 +24,6 @@ export default function HomePage() {
                 <span className="text-2xl font-black text-yellow-400">.PRO</span>
               </div>
             </div>
-            
-            {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">
               <Link href="/" className="text-white font-semibold border-b-2 border-yellow-400 pb-1">
                 HOME
@@ -52,77 +50,10 @@ export default function HomePage() {
                 CONTACT
               </Link>
             </nav>
-            
-            {/* Desktop CTA Button */}
-            <Button className="hidden md:block bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6">
+            <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6">
               <Link href="/contact">GET STARTED</Link>
             </Button>
-            
-            {/* Mobile Menu Button */}
-            <button 
-              className="md:hidden text-white p-2"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
           </div>
-          
-          {/* Mobile Navigation Menu */}
-          {mobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-gray-700">
-              <nav className="flex flex-col space-y-4 mt-4">
-                <Link 
-                  href="/" 
-                  className="text-white font-semibold py-2 border-l-4 border-yellow-400 pl-4"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  HOME
-                </Link>
-                <Link 
-                  href="/services" 
-                  className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  SERVICES
-                </Link>
-                <Link
-                  href="/why-choose-us"
-                  className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  WHY US
-                </Link>
-                <Link
-                  href="/how-it-works"
-                  className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  HOW IT WORKS
-                </Link>
-                <Link 
-                  href="/blog" 
-                  className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  NEWS
-                </Link>
-                <Link 
-                  href="/contact" 
-                  className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  CONTACT
-                </Link>
-                <div className="pt-4 pl-4">
-                  <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6 w-full">
-                    <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>GET STARTED</Link>
-                  </Button>
-                </div>
-              </nav>
-            </div>
-          )}
         </div>
       </header>
 
@@ -141,7 +72,7 @@ export default function HomePage() {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-12">
+          <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-12">
             <div className="bg-gray-800 border-2 border-gray-700 p-6 rounded-lg">
               <div className="text-3xl font-black text-yellow-400 mb-2">24/7</div>
               <div className="text-gray-300 font-semibold">Support Available</div>
