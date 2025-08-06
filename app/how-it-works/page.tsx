@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Truck, ArrowLeft, Phone, MessageSquare, CheckCircle, Clock, FileText, TrendingUp } from 'lucide-react'
+import { Truck, ArrowLeft, Phone, MessageSquare, CheckCircle, Clock, FileText, TrendingUp, Rocket, ArrowRight } from 'lucide-react'
 
 export const metadata = {
   title: "How It Works - Dispatching.Pro",
@@ -79,82 +79,205 @@ return (
     {/* Process Steps */}
     <section className="py-20 bg-gray-800">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-black text-center mb-16 text-white">
             SIMPLE <span className="text-yellow-400">4-STEP PROCESS</span>
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Step 1 */}
-            <Card className="bg-gray-900 border-2 border-yellow-400 relative">
-              <div className="absolute -top-4 left-4">
-                <div className="bg-yellow-400 text-gray-900 w-8 h-8 rounded-full flex items-center justify-center font-black">
-                  1
-                </div>
+          
+          {/* Flowchart Layout */}
+          <div className="flex items-center justify-center gap-4 lg:gap-8">
+            {/* Contact Us - Standalone */}
+            <div className="flex-shrink-0">
+              <div className="text-center mb-2">
+                <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-black">
+                  SAY HI
+                </span>
               </div>
-              <CardContent className="p-8 pt-12">
-                <div className="bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                  <Phone className="h-8 w-8 text-gray-900" />
-                </div>
-                <h3 className="text-xl font-black text-white mb-4 text-center">CONTACT US</h3>
-                <p className="text-gray-300 text-center">
-                  Call, text, or WhatsApp us. We'll discuss your needs and answer any questions you have.
-                </p>
-              </CardContent>
-            </Card>
+              <Card className="bg-gray-900 border-2 border-blue-500 w-64 h-80">
+                <CardContent className="p-6 text-center h-full flex flex-col justify-between">
+                  <div>
+                    <div className="bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                      <Phone className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-black text-white mb-4">CONTACT US</h3>
+                    <p className="text-gray-300 text-sm mb-3">
+                      Call, text, or WhatsApp us. We'll discuss your needs and answer any questions you have.
+                    </p>
+                  </div>
+                  <p className="text-blue-400 font-bold text-lg">647-362-6649</p>
+                </CardContent>
+              </Card>
+            </div>
 
-            {/* Step 2 */}
-            <Card className="bg-gray-900 border-2 border-gray-700 relative">
-              <div className="absolute -top-4 left-4">
-                <div className="bg-gray-700 text-white w-8 h-8 rounded-full flex items-center justify-center font-black">
-                  2
-                </div>
-              </div>
-              <CardContent className="p-8 pt-12">
-                <div className="bg-gray-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                  <FileText className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-black text-white mb-4 text-center">QUICK SETUP</h3>
-                <p className="text-gray-300 text-center">
-                  Provide your MC number, insurance info, and equipment details. Takes less than 10 minutes.
-                </p>
-              </CardContent>
-            </Card>
+            {/* Arrow 1 */}
+            <div className="hidden lg:block flex-shrink-0">
+              <ArrowRight className="h-8 w-8 text-yellow-400" />
+            </div>
 
-            {/* Step 3 */}
-            <Card className="bg-gray-900 border-2 border-gray-700 relative">
-              <div className="absolute -top-4 left-4">
-                <div className="bg-gray-700 text-white w-8 h-8 rounded-full flex items-center justify-center font-black">
-                  3
-                </div>
+            {/* READY */}
+            <div className="flex-shrink-0">
+              <div className="text-center mb-2">
+                <span className="bg-red-500 text-white px-4 py-1 rounded-full text-sm font-black">
+                  READY
+                </span>
               </div>
-              <CardContent className="p-8 pt-12">
-                <div className="bg-gray-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                  <TrendingUp className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-black text-white mb-4 text-center">FIND LOADS</h3>
-                <p className="text-gray-300 text-center">
-                  We immediately start searching for high-paying loads that match your equipment and preferences.
-                </p>
-              </CardContent>
-            </Card>
+              <Card className="bg-gray-900 border-2 border-red-500 w-64 h-80">
+                <CardContent className="p-6 text-center h-full flex flex-col justify-center">
+                  <div className="bg-red-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                    <FileText className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-black text-white mb-4">QUICK SETUP</h3>
+                  <p className="text-gray-300 text-sm">
+                    Provide your MC number, insurance info, and equipment details. Takes less than 10 minutes.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
 
-            {/* Step 4 */}
-            <Card className="bg-gray-900 border-2 border-gray-700 relative">
-              <div className="absolute -top-4 left-4">
-                <div className="bg-gray-700 text-white w-8 h-8 rounded-full flex items-center justify-center font-black">
-                  4
-                </div>
+            {/* Arrow 2 */}
+            <div className="hidden lg:block flex-shrink-0">
+              <ArrowRight className="h-8 w-8 text-yellow-400" />
+            </div>
+
+            {/* SET */}
+            <div className="flex-shrink-0">
+              <div className="text-center mb-2">
+                <span className="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-black">
+                  SET
+                </span>
               </div>
-              <CardContent className="p-8 pt-12">
-                <div className="bg-gray-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                  <Truck className="h-8 w-8 text-white" />
+              <Card className="bg-gray-900 border-2 border-yellow-400 w-64 h-80">
+                <CardContent className="p-6 text-center h-full flex flex-col justify-center">
+                  <div className="bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="h-8 w-8 text-gray-900" />
+                  </div>
+                  <h3 className="text-xl font-black text-white mb-4">FIND LOADS</h3>
+                  <p className="text-gray-300 text-sm">
+                    We immediately start searching for high-paying loads that match your equipment and preferences.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Arrow 3 */}
+            <div className="hidden lg:block flex-shrink-0">
+              <ArrowRight className="h-8 w-8 text-yellow-400" />
+            </div>
+
+            {/* GO! */}
+            <div className="flex-shrink-0">
+              <div className="text-center mb-2">
+                <span className="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-black">
+                  GO!
+                </span>
+              </div>
+              <Card className="bg-gray-900 border-2 border-green-500 w-64 h-80">
+                <CardContent className="p-6 text-center h-full flex flex-col justify-center">
+                  <div className="bg-green-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                    <Rocket className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-black text-white mb-4">START ROLLING</h3>
+                  <p className="text-gray-300 text-sm">
+                    Accept the load, hit the road, and start making money. We handle everything else.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Mobile Layout */}
+          <div className="lg:hidden mt-8">
+            <div className="space-y-6">
+              {/* Contact Us Mobile */}
+              <div className="flex items-center gap-4">
+                <Card className="bg-gray-900 border-2 border-blue-500 flex-1 h-24">
+                  <CardContent className="p-4 h-full">
+                    <div className="flex items-center gap-4 h-full">
+                      <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                        <Phone className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-black text-white">CONTACT US</h3>
+                        <p className="text-gray-300 text-sm">Call, text, or WhatsApp us</p>
+                        <p className="text-blue-400 font-bold text-sm">647-362-6649</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="flex justify-center">
+                <ArrowRight className="h-6 w-6 text-yellow-400 rotate-90" />
+              </div>
+
+              {/* READY Mobile */}
+              <div className="flex items-center gap-4">
+                <div className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-black flex-shrink-0">
+                  READY
                 </div>
-                <h3 className="text-xl font-black text-white mb-4 text-center">START ROLLING</h3>
-                <p className="text-gray-300 text-center">
-                  Accept the load, hit the road, and start making money. We handle everything else.
-                </p>
-              </CardContent>
-            </Card>
+                <Card className="bg-gray-900 border-2 border-red-500 flex-1 h-24">
+                  <CardContent className="p-4 h-full">
+                    <div className="flex items-center gap-4 h-full">
+                      <div className="bg-red-500 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                        <FileText className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-black text-white">QUICK SETUP</h3>
+                        <p className="text-gray-300 text-sm">Provide your details</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="flex justify-center">
+                <ArrowRight className="h-6 w-6 text-yellow-400 rotate-90" />
+              </div>
+
+              {/* SET Mobile */}
+              <div className="flex items-center gap-4">
+                <div className="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-black flex-shrink-0">
+                  SET
+                </div>
+                <Card className="bg-gray-900 border-2 border-yellow-400 flex-1 h-24">
+                  <CardContent className="p-4 h-full">
+                    <div className="flex items-center gap-4 h-full">
+                      <div className="bg-yellow-400 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                        <TrendingUp className="h-6 w-6 text-gray-900" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-black text-white">FIND LOADS</h3>
+                        <p className="text-gray-300 text-sm">We search for high-paying loads</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="flex justify-center">
+                <ArrowRight className="h-6 w-6 text-yellow-400 rotate-90" />
+              </div>
+
+              {/* GO! Mobile */}
+              <div className="flex items-center gap-4">
+                <div className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-black flex-shrink-0">
+                  GO!
+                </div>
+                <Card className="bg-gray-900 border-2 border-green-500 flex-1 h-24">
+                  <CardContent className="p-4 h-full">
+                    <div className="flex items-center gap-4 h-full">
+                      <div className="bg-green-500 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+                        <Rocket className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-black text-white">START ROLLING</h3>
+                        <p className="text-gray-300 text-sm">Hit the road and make money</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         </div>
       </div>
