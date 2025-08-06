@@ -10,6 +10,39 @@ export const metadata = {
 
 const blogPosts = [
   {
+    id: 9,
+    title: "Canadian Success: 8-Year Veteran Doubles Net Income While Getting Weekends Home",
+    excerpt: "Meet Tom from Guelph, ON - an experienced owner-operator who went from $6K to $11K+ net monthly income while securing every weekend with his family through strategic cross-border dispatching.",
+    category: "Success Stories",
+    date: "July 15, 2025",
+    author: "Dispatching.Pro Team",
+    readTime: "6 min read",
+    featured: true,
+    icon: TrendingUp
+  },
+  {
+    id: 8,
+    title: "Cross-Border Reefer Success: From $18K to $32K Monthly Revenue in 6 Months",
+    excerpt: "See how our Premium Dispatch Service helped this experienced reefer operator increase monthly revenue by 78% while reducing stress and improving work-life balance.",
+    category: "Success Stories",
+    date: "August 15, 2025",
+    author: "Dispatching.Pro Team",
+    readTime: "5 min read",
+    featured: false,
+    icon: TrendingUp
+  },
+  {
+    id: 7,
+    title: "Client Spotlight: New Owner-Operator Averages $24,000/Month With Weekly Home Time",
+    excerpt: "Meet one of our newest success stories. This Dry Van owner-operator hit the road in May 2025 and is now averaging over $24,000 USD/month in gross revenue with weekly home time.",
+    category: "Success Stories",
+    date: "August 1, 2025",
+    author: "Dispatching.Pro Team",
+    readTime: "4 min read",
+    featured: false,
+    icon: TrendingUp
+  },
+  {
     id: 1,
     title: "5 Ways to Maximize Your Revenue Per Mile in 2025",
     excerpt: "Learn the proven strategies our dispatchers use to help owner-operators increase their revenue per mile by up to 20%.",
@@ -17,7 +50,7 @@ const blogPosts = [
     date: "January 15, 2025",
     author: "Mike Rodriguez",
     readTime: "5 min read",
-    featured: true,
+    featured: false,
     icon: TrendingUp
   },
   {
@@ -77,7 +110,7 @@ const blogPosts = [
   }
 ]
 
-const categories = ["All", "Revenue Tips", "Regulations", "Cost Savings", "Compliance", "Equipment", "Company News"]
+const categories = ["All", "Success Stories", "Revenue Tips", "Regulations", "Cost Savings", "Compliance", "Equipment", "Company News"]
 
 export default function BlogPage() {
   const featuredPost = blogPosts.find(post => post.featured)
