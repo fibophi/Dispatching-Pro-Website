@@ -6,11 +6,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Truck, Phone, Mail, MessageSquare, ArrowRight, CheckCircle, Clock, Users, TrendingUp } from 'lucide-react'
 
-export const metadata = {
-  title: "Dispatching.Pro - Professional Truck Dispatch Services",
-  description: "Professional dispatch services for Dry Van & Reefer carriers running USA Interstate and Cross-Border freight. 24/7 support, higher rates, no contracts.",
-}
-
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -132,52 +127,52 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 md:py-20">
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-6 md:mb-8 text-white leading-tight">
+          <h1 className="text-5xl md:text-7xl font-black mb-8 text-white leading-tight">
             <span className="block">KEEP ROLLING.</span>
             <span className="block text-yellow-400">WE'LL HANDLE THE REST.</span>
           </h1>
-          <div className="bg-gray-800 border-l-4 border-yellow-400 p-4 md:p-6 max-w-4xl mx-auto mb-8 md:mb-12">
-            <p className="text-lg md:text-xl text-gray-300">
+          <div className="bg-gray-800 border-l-4 border-yellow-400 p-6 max-w-4xl mx-auto mb-12">
+            <p className="text-xl text-gray-300">
               <span className="text-yellow-400 font-bold">DRY VAN & REEFER SPECIALISTS</span> for USA Interstate and
               Cross-Border freight. Professional dispatch for FTL & LTL carriers who demand results.
             </p>
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto mb-8 md:mb-12">
-            <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
-              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">24/7</div>
-              <div className="text-gray-300 font-semibold text-sm md:text-base">Support Available</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-12">
+            <div className="bg-gray-800 border-2 border-gray-700 p-6 rounded-lg">
+              <div className="text-3xl font-black text-yellow-400 mb-2">24/7</div>
+              <div className="text-gray-300 font-semibold">Support Available</div>
             </div>
-            <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
-              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">15%</div>
-              <div className="text-gray-300 font-semibold text-sm md:text-base">Higher Rates</div>
+            <div className="bg-gray-800 border-2 border-gray-700 p-6 rounded-lg">
+              <div className="text-3xl font-black text-yellow-400 mb-2">15%</div>
+              <div className="text-gray-300 font-semibold">Higher Rates</div>
             </div>
-            <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
-              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">95%</div>
-              <div className="text-gray-300 font-semibold text-sm md:text-base">Load Acceptance</div>
+            <div className="bg-gray-800 border-2 border-gray-700 p-6 rounded-lg">
+              <div className="text-3xl font-black text-yellow-400 mb-2">95%</div>
+              <div className="text-gray-300 font-semibold">Load Acceptance</div>
             </div>
-            <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
-              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">0</div>
-              <div className="text-gray-300 font-semibold text-sm md:text-base">Setup Fees</div>
+            <div className="bg-gray-800 border-2 border-gray-700 p-6 rounded-lg">
+              <div className="text-3xl font-black text-yellow-400 mb-2">0</div>
+              <div className="text-gray-300 font-semibold">Setup Fees</div>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center px-4">
-            <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black px-8 md:px-10 py-3 md:py-4 text-lg md:text-xl w-full sm:w-auto">
-              <Link href="/contact" className="flex items-center justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black px-10 py-4 text-xl">
+              <Link href="/contact" className="flex items-center">
                 GET STARTED NOW
-                <ArrowRight className="ml-2 h-5 w-5 md:h-6 md:w-6" />
+                <ArrowRight className="ml-2 h-6 w-6" />
               </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-gray-900 font-black px-8 md:px-10 py-3 md:py-4 text-lg md:text-xl bg-transparent w-full sm:w-auto"
+              className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-gray-900 font-black px-10 py-4 text-xl bg-transparent"
             >
-              <Link href="/services" className="flex items-center justify-center">
+              <Link href="/services" className="flex items-center">
                 VIEW SERVICES
               </Link>
             </Button>
