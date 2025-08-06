@@ -17,7 +17,6 @@ const blogPosts = [
     date: "January 15, 2025",
     author: "Mike Rodriguez",
     readTime: "5 min read",
-    image: "/money-truck-highway.png",
     featured: true,
     icon: TrendingUp
   },
@@ -29,7 +28,6 @@ const blogPosts = [
     date: "January 12, 2025",
     author: "Sarah Johnson",
     readTime: "8 min read",
-    image: "/truck-border-crossing.png",
     featured: false,
     icon: Route
   },
@@ -41,7 +39,6 @@ const blogPosts = [
     date: "January 10, 2025",
     author: "David Chen",
     readTime: "6 min read",
-    image: "/fuel-pump-truck-route.png",
     featured: false,
     icon: Fuel
   },
@@ -53,7 +50,6 @@ const blogPosts = [
     date: "January 8, 2025",
     author: "Lisa Martinez",
     readTime: "7 min read",
-    image: "/placeholder-k3mqp.png",
     featured: false,
     icon: AlertCircle
   },
@@ -65,7 +61,6 @@ const blogPosts = [
     date: "January 5, 2025",
     author: "Mike Rodriguez",
     readTime: "10 min read",
-    image: "/reefer-dry-van.png",
     featured: false,
     icon: Truck
   },
@@ -77,7 +72,6 @@ const blogPosts = [
     date: "January 3, 2025",
     author: "Dispatching.Pro Team",
     readTime: "3 min read",
-    image: "/placeholder-yk2n9.png",
     featured: false,
     icon: TrendingUp
   }
@@ -124,7 +118,7 @@ export default function BlogPage() {
                 HOW IT WORKS
               </Link>
               <Link href="/blog" className="text-white font-semibold border-b-2 border-yellow-400 pb-1">
-                BLOG
+                NEWS
               </Link>
               <Link href="/contact" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
                 CONTACT
@@ -142,7 +136,7 @@ export default function BlogPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-black mb-6 text-white">
-              INDUSTRY <span className="text-yellow-400">INSIGHTS</span>
+              INDUSTRY <span className="text-yellow-400">NEWS</span>
             </h1>
             <p className="text-xl text-gray-300 mb-8">
               Stay ahead of the curve with expert insights, industry trends, and practical tips from our experienced dispatch team.
@@ -186,18 +180,6 @@ export default function BlogPage() {
               </div>
               <Card className="bg-gray-800 border-2 border-yellow-400 overflow-hidden">
                 <div className="grid md:grid-cols-2 gap-0">
-                  <div className="relative h-64 md:h-auto">
-                    <img
-                      src={featuredPost.image || "/placeholder.svg"}
-                      alt={featuredPost.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-bold">
-                        {featuredPost.category}
-                      </span>
-                    </div>
-                  </div>
                   <CardContent className="p-8 flex flex-col justify-center">
                     <h2 className="text-3xl font-black text-white mb-4">{featuredPost.title}</h2>
                     <p className="text-gray-300 text-lg mb-6">{featuredPost.excerpt}</p>
@@ -234,20 +216,13 @@ export default function BlogPage() {
                 const IconComponent = post.icon
                 return (
                   <Card key={post.id} className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 transition-colors overflow-hidden group">
-                    <div className="relative h-48">
-                      <img
-                        src={post.image || "/placeholder.svg"}
-                        alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
+                    <CardContent className="p-6">
                       <div className="absolute top-4 left-4">
                         <span className="bg-gray-900 bg-opacity-90 text-yellow-400 px-3 py-1 rounded-full text-sm font-bold flex items-center">
                           <IconComponent className="h-3 w-3 mr-1" />
                           {post.category}
                         </span>
                       </div>
-                    </div>
-                    <CardContent className="p-6">
                       <h3 className="text-xl font-black text-white mb-3 group-hover:text-yellow-400 transition-colors">
                         {post.title}
                       </h3>
@@ -349,7 +324,7 @@ export default function BlogPage() {
                 </li>
                 <li>
                   <Link href="/blog" className="hover:text-yellow-400 transition-colors">
-                    Blog
+                    News
                   </Link>
                 </li>
                 <li>
