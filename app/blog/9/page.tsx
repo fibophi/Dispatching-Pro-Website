@@ -110,24 +110,24 @@ export default function BlogPost9Page() {
               <h2 className="text-2xl font-black text-white mb-6 text-center">🇨🇦 CANADIAN SUCCESS STORY</h2>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="bg-white bg-opacity-20 rounded-lg p-4">
-                    <DollarSign className="h-8 w-8 text-white mx-auto mb-2" />
-                    <div className="text-2xl font-black text-white">$28,800</div>
-                    <div className="text-red-100 text-sm">CAD Monthly Gross</div>
+                  <div className="bg-white bg-opacity-90 rounded-lg p-4 border-2 border-white">
+                    <DollarSign className="h-8 w-8 text-red-600 mx-auto mb-2" />
+                    <div className="text-2xl font-black text-gray-900">$28,800</div>
+                    <div className="text-gray-700 text-sm font-semibold">CAD Monthly Gross</div>
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="bg-white bg-opacity-20 rounded-lg p-4">
-                    <TrendingUp className="h-8 w-8 text-white mx-auto mb-2" />
-                    <div className="text-2xl font-black text-white">$11,000+</div>
-                    <div className="text-red-100 text-sm">CAD Net Monthly</div>
+                  <div className="bg-white bg-opacity-90 rounded-lg p-4 border-2 border-white">
+                    <TrendingUp className="h-8 w-8 text-red-600 mx-auto mb-2" />
+                    <div className="text-2xl font-black text-gray-900">$11,000+</div>
+                    <div className="text-gray-700 text-sm font-semibold">CAD Net Monthly</div>
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="bg-white bg-opacity-20 rounded-lg p-4">
-                    <Home className="h-8 w-8 text-white mx-auto mb-2" />
-                    <div className="text-2xl font-black text-white">Every</div>
-                    <div className="text-red-100 text-sm">Weekend Home</div>
+                  <div className="bg-white bg-opacity-90 rounded-lg p-4 border-2 border-white">
+                    <Home className="h-8 w-8 text-red-600 mx-auto mb-2" />
+                    <div className="text-2xl font-black text-gray-900">Every</div>
+                    <div className="text-gray-700 text-sm font-semibold">Weekend Home</div>
                   </div>
                 </div>
               </div>
