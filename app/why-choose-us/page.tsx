@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -9,6 +12,8 @@ export const metadata = {
 }
 
 export default function WhyChooseUsPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
 return (
   <div className="min-h-screen bg-gray-900">
     {/* Header */}
@@ -24,6 +29,8 @@ return (
               <span className="text-2xl font-black text-yellow-400">.PRO</span>
             </div>
           </div>
+          
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             <Link href="/" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
               HOME
@@ -47,10 +54,77 @@ return (
               CONTACT
             </Link>
           </nav>
-          <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6">
+          
+          {/* Desktop CTA Button */}
+          <Button className="hidden md:block bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6">
             <Link href="/contact">GET STARTED</Link>
           </Button>
+          
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-white p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
+        
+        {/* Mobile Navigation Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 border-t border-gray-700">
+            <nav className="flex flex-col space-y-4 mt-4">
+              <Link 
+                href="/" 
+                className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                HOME
+              </Link>
+              <Link 
+                href="/services" 
+                className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                SERVICES
+              </Link>
+              <Link
+                href="/why-choose-us"
+                className="text-white font-semibold py-2 border-l-4 border-yellow-400 pl-4"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                WHY US
+              </Link>
+              <Link
+                href="/how-it-works"
+                className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                HOW IT WORKS
+              </Link>
+              <Link 
+                href="/blog" 
+                className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                NEWS
+              </Link>
+              <Link 
+                href="/contact" 
+                className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                CONTACT
+              </Link>
+              <div className="pt-4 pl-4">
+                <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6 w-full">
+                  <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>GET STARTED</Link>
+                </Button>
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
 
