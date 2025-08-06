@@ -24,6 +24,8 @@ export default function HomePage() {
                 <span className="text-2xl font-black text-yellow-400">.PRO</span>
               </div>
             </div>
+            
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">
               <Link href="/" className="text-white font-semibold border-b-2 border-yellow-400 pb-1">
                 HOME
@@ -50,60 +52,98 @@ export default function HomePage() {
                 CONTACT
               </Link>
             </nav>
-            <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6">
+            
+            {/* Desktop CTA Button */}
+            <Button className="hidden md:flex bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6">
               <Link href="/contact">GET STARTED</Link>
             </Button>
+            
+            {/* Mobile Menu Button */}
+            <button className="md:hidden text-white p-2">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+          
+          {/* Mobile Navigation Menu */}
+          <div className="md:hidden mt-4 pb-4 border-t border-gray-700">
+            <nav className="flex flex-col space-y-4 mt-4">
+              <Link href="/" className="text-white font-semibold py-2 border-l-4 border-yellow-400 pl-4">
+                HOME
+              </Link>
+              <Link href="/services" className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors">
+                SERVICES
+              </Link>
+              <Link href="/why-choose-us" className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors">
+                WHY US
+              </Link>
+              <Link href="/how-it-works" className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors">
+                HOW IT WORKS
+              </Link>
+              <Link href="/blog" className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors">
+                NEWS
+              </Link>
+              <Link href="/contact" className="text-gray-300 hover:text-yellow-400 font-semibold py-2 pl-4 transition-colors">
+                CONTACT
+              </Link>
+              <div className="pt-4">
+                <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3">
+                  <Link href="/contact">GET STARTED</Link>
+                </Button>
+              </div>
+            </nav>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-20">
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-7xl font-black mb-8 text-white leading-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-black mb-6 md:mb-8 text-white leading-tight">
             <span className="block">KEEP ROLLING.</span>
             <span className="block text-yellow-400">WE'LL HANDLE THE REST.</span>
           </h1>
-          <div className="bg-gray-800 border-l-4 border-yellow-400 p-6 max-w-4xl mx-auto mb-12">
-            <p className="text-xl text-gray-300">
+          <div className="bg-gray-800 border-l-4 border-yellow-400 p-4 md:p-6 max-w-4xl mx-auto mb-8 md:mb-12">
+            <p className="text-lg md:text-xl text-gray-300">
               <span className="text-yellow-400 font-bold">DRY VAN & REEFER SPECIALISTS</span> for USA Interstate and
               Cross-Border freight. Professional dispatch for FTL & LTL carriers who demand results.
             </p>
           </div>
 
           {/* Stats Grid */}
-          <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-12">
-            <div className="bg-gray-800 border-2 border-gray-700 p-6 rounded-lg">
-              <div className="text-3xl font-black text-yellow-400 mb-2">24/7</div>
-              <div className="text-gray-300 font-semibold">Support Available</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto mb-8 md:mb-12">
+            <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
+              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">24/7</div>
+              <div className="text-gray-300 font-semibold text-sm md:text-base">Support Available</div>
             </div>
-            <div className="bg-gray-800 border-2 border-gray-700 p-6 rounded-lg">
-              <div className="text-3xl font-black text-yellow-400 mb-2">15%</div>
-              <div className="text-gray-300 font-semibold">Higher Rates</div>
+            <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
+              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">15%</div>
+              <div className="text-gray-300 font-semibold text-sm md:text-base">Higher Rates</div>
             </div>
-            <div className="bg-gray-800 border-2 border-gray-700 p-6 rounded-lg">
-              <div className="text-3xl font-black text-yellow-400 mb-2">95%</div>
-              <div className="text-gray-300 font-semibold">Load Acceptance</div>
+            <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
+              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">95%</div>
+              <div className="text-gray-300 font-semibold text-sm md:text-base">Load Acceptance</div>
             </div>
-            <div className="bg-gray-800 border-2 border-gray-700 p-6 rounded-lg">
-              <div className="text-3xl font-black text-yellow-400 mb-2">0</div>
-              <div className="text-gray-300 font-semibold">Setup Fees</div>
+            <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
+              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">0</div>
+              <div className="text-gray-300 font-semibold text-sm md:text-base">Setup Fees</div>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black px-10 py-4 text-xl">
-              <Link href="/contact" className="flex items-center">
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center px-4">
+            <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black px-8 md:px-10 py-3 md:py-4 text-lg md:text-xl">
+              <Link href="/contact" className="flex items-center justify-center">
                 GET STARTED NOW
-                <ArrowRight className="ml-2 h-6 w-6" />
+                <ArrowRight className="ml-2 h-5 w-5 md:h-6 md:w-6" />
               </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-gray-900 font-black px-10 py-4 text-xl bg-transparent"
+              className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-gray-900 font-black px-8 md:px-10 py-3 md:py-4 text-lg md:text-xl bg-transparent"
             >
-              <Link href="/services" className="flex items-center">
+              <Link href="/services" className="flex items-center justify-center">
                 VIEW SERVICES
               </Link>
             </Button>
@@ -112,52 +152,52 @@ export default function HomePage() {
       </section>
 
       {/* Quick Contact */}
-      <section className="py-16 bg-gray-800">
+      <section className="py-12 md:py-16 bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-black text-center mb-12 text-white">
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-8 md:mb-12 text-white">
               READY TO <span className="text-yellow-400">GET STARTED?</span>
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               <Card className="bg-gray-900 border-2 border-yellow-400 hover:scale-105 transition-transform">
-                <CardContent className="p-8 text-center">
-                  <div className="bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                    <Phone className="h-8 w-8 text-gray-900" />
+                <CardContent className="p-6 md:p-8 text-center">
+                  <div className="bg-yellow-400 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
+                    <Phone className="h-6 w-6 md:h-8 md:w-8 text-gray-900" />
                   </div>
-                  <h3 className="text-2xl font-black text-white mb-4">CALL</h3>
-                  <p className="text-2xl font-bold text-yellow-400 mb-4">647-362-6649</p>
-                  <p className="text-gray-400">Talk to a dispatcher in 2 minutes</p>
+                  <h3 className="text-xl md:text-2xl font-black text-white mb-3 md:mb-4">CALL</h3>
+                  <p className="text-xl md:text-2xl font-bold text-yellow-400 mb-3 md:mb-4">647-362-6649</p>
+                  <p className="text-gray-400 text-sm md:text-base">Talk to a dispatcher in 2 minutes</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 hover:scale-105 transition-all">
-                <CardContent className="p-8 text-center">
+                <CardContent className="p-6 md:p-8 text-center">
                   <a
                     href="https://wa.me/16473626649"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block h-full"
                   >
-                    <div className="bg-gray-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                      <MessageSquare className="h-8 w-8 text-white" />
+                    <div className="bg-gray-700 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
+                      <MessageSquare className="h-6 w-6 md:h-8 md:w-8 text-white" />
                     </div>
-                    <h3 className="text-2xl font-black text-white mb-4">WHATSAPP</h3>
-                    <p className="text-2xl font-bold text-white mb-4">647-362-6649</p>
-                    <p className="text-gray-400">Quick questions & updates</p>
+                    <h3 className="text-xl md:text-2xl font-black text-white mb-3 md:mb-4">WHATSAPP</h3>
+                    <p className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">647-362-6649</p>
+                    <p className="text-gray-400 text-sm md:text-base">Quick questions & updates</p>
                   </a>
                 </CardContent>
               </Card>
 
               <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 hover:scale-105 transition-all">
-                <CardContent className="p-8 text-center flex flex-col items-center justify-center">
-                  <div className="bg-gray-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                    <Mail className="h-8 w-8 text-white" />
+                <CardContent className="p-6 md:p-8 text-center flex flex-col items-center justify-center">
+                  <div className="bg-gray-700 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
+                    <Mail className="h-6 w-6 md:h-8 md:w-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-black text-white mb-4">EMAIL</h3>
-                  <p className="text-xl font-bold text-white mb-4 text-center whitespace-nowrap">
+                  <h3 className="text-xl md:text-2xl font-black text-white mb-3 md:mb-4">EMAIL</h3>
+                  <p className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center break-all md:whitespace-nowrap">
                     solutions@dispatching.pro
                   </p>
-                  <p className="text-gray-400">Detailed inquiries</p>
+                  <p className="text-gray-400 text-sm md:text-base">Detailed inquiries</p>
                 </CardContent>
               </Card>
             </div>
