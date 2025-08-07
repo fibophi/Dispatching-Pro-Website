@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Truck, ArrowLeft, Phone, Mail, Clock, MessageSquare } from 'lucide-react'
+import { MobileNav } from '@/components/mobile-nav'
 
 export const metadata = {
   title: "Contact Us - Dispatching.Pro",
@@ -19,11 +20,11 @@ export default function ContactPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="bg-yellow-400 p-2 rounded-lg">
-                <Truck className="h-7 w-7 text-gray-900" />
+                <Truck className="h-6 w-6 md:h-7 md:w-7 text-gray-900" />
               </div>
               <div>
-                <span className="text-2xl font-black text-white tracking-tight">DISPATCHING</span>
-                <span className="text-2xl font-black text-yellow-400">.PRO</span>
+                <span className="text-lg md:text-2xl font-black text-white tracking-tight">DISPATCHING</span>
+                <span className="text-lg md:text-2xl font-black text-yellow-400">.PRO</span>
               </div>
             </div>
             <nav className="hidden md:flex space-x-8">
@@ -52,9 +53,12 @@ export default function ContactPage() {
                 CONTACT
               </Link>
             </nav>
-            <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6">
-              <Link href="/contact">GET STARTED</Link>
-            </Button>
+            <div className="flex items-center space-x-2">
+              <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-3 md:px-6 py-2 text-sm md:text-base">
+                <Link href="/contact">GET STARTED</Link>
+              </Button>
+              <MobileNav />
+            </div>
           </div>
         </div>
       </header>
@@ -88,36 +92,27 @@ export default function ContactPage() {
               MULTIPLE WAYS TO <span className="text-yellow-400">REACH US</span>
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12 md:mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+              {/* Combined Call/WhatsApp Box */}
               <Card className="bg-gray-900 border-2 border-yellow-400 hover:scale-105 transition-transform">
                 <CardContent className="p-6 md:p-8 text-center">
                   <div className="bg-yellow-400 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
                     <Phone className="h-6 w-6 md:h-8 md:w-8 text-gray-900" />
                   </div>
-                  <h3 className="text-lg md:text-xl font-black text-white mb-4">CALL</h3>
+                  <h3 className="text-lg md:text-xl font-black text-white mb-4">CALL / WHATSAPP</h3>
                   <p className="text-lg md:text-2xl font-bold text-yellow-400 mb-2">647-362-6649</p>
-                  <p className="text-sm md:text-base text-gray-400">Fastest way to get started</p>
+                  <p className="text-sm md:text-base text-gray-400 mb-2">Quickest & most efficient way</p>
+                  <div className="flex items-center justify-center gap-2 text-xs md:text-sm text-gray-300">
+                    <Phone className="h-3 w-3 md:h-4 md:w-4" />
+                    <span>Call</span>
+                    <span>•</span>
+                    <MessageSquare className="h-3 w-3 md:h-4 md:w-4" />
+                    <span>WhatsApp</span>
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 hover:scale-105 transition-all">
-                <CardContent className="p-6 md:p-8 text-center">
-                  <a
-                    href="https://wa.me/16473626649"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block h-full"
-                  >
-                    <div className="bg-gray-700 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
-                      <MessageSquare className="h-6 w-6 md:h-8 md:w-8 text-white" />
-                    </div>
-                    <h3 className="text-lg md:text-xl font-black text-white mb-4">WHATSAPP</h3>
-                    <p className="text-lg md:text-2xl font-bold text-white mb-2">647-362-6649</p>
-                    <p className="text-sm md:text-base text-gray-400">Quick questions & updates</p>
-                  </a>
-                </CardContent>
-              </Card>
-
+              {/* Email Box */}
               <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 hover:scale-105 transition-all">
                 <CardContent className="p-4 md:p-6 text-center flex flex-col items-center justify-center">
                   <div className="bg-gray-700 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
@@ -131,6 +126,7 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
 
+              {/* Availability Box */}
               <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 hover:scale-105 transition-all">
                 <CardContent className="p-6 md:p-8 text-center">
                   <div className="bg-gray-700 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
