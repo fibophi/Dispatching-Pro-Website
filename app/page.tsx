@@ -124,17 +124,19 @@ export default function HomePage() {
               READY TO <span className="text-yellow-400">GET STARTED?</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
+              {/* Combined Call/WhatsApp Box */}
               <Card className="bg-gray-900 border-2 border-yellow-400 hover:scale-105 transition-transform">
                 <CardContent className="p-8 text-center">
                   <div className="bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                     <Phone className="h-8 w-8 text-gray-900" />
                   </div>
-                  <h3 className="text-2xl font-black text-white mb-4">CALL</h3>
+                  <h3 className="text-2xl font-black text-white mb-4">CALL / WHATSAPP</h3>
                   <p className="text-2xl font-bold text-yellow-400 mb-4">647-362-6649</p>
                   <p className="text-gray-400">Talk to a dispatcher in 2 minutes</p>
                 </CardContent>
               </Card>
 
+              {/* Chat With Us Box */}
               <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 hover:scale-105 transition-all">
                 <CardContent className="p-8 text-center">
                   <a
@@ -146,13 +148,14 @@ export default function HomePage() {
                     <div className="bg-gray-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                       <MessageSquare className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-2xl font-black text-white mb-4">WHATSAPP</h3>
-                    <p className="text-2xl font-bold text-white mb-4">647-362-6649</p>
+                    <h3 className="text-2xl font-black text-white mb-4">CHAT WITH US</h3>
+                    <p className="text-2xl font-bold text-white mb-4">Live Support</p>
                     <p className="text-gray-400">Quick questions & updates</p>
                   </a>
                 </CardContent>
               </Card>
 
+              {/* Email Box - Keep as is */}
               <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 hover:scale-105 transition-all">
                 <CardContent className="p-8 text-center flex flex-col items-center justify-center">
                   <div className="bg-gray-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
