@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Truck, Phone, Mail, MessageSquare, ArrowRight, CheckCircle, Clock, Users, TrendingUp } from 'lucide-react'
+import { MobileNav } from '@/components/mobile-nav'
 
 export const metadata = {
   title: "Dispatching.Pro - Professional Truck Dispatch Services",
@@ -17,11 +18,11 @@ export default function HomePage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="bg-yellow-400 p-2 rounded-lg">
-                <Truck className="h-7 w-7 text-gray-900" />
+                <Truck className="h-6 w-6 md:h-7 md:w-7 text-gray-900" />
               </div>
               <div>
-                <span className="text-2xl font-black text-white tracking-tight">DISPATCHING</span>
-                <span className="text-2xl font-black text-yellow-400">.PRO</span>
+                <span className="text-lg md:text-2xl font-black text-white tracking-tight">DISPATCHING</span>
+                <span className="text-lg md:text-2xl font-black text-yellow-400">.PRO</span>
               </div>
             </div>
             <nav className="hidden md:flex space-x-8">
@@ -50,58 +51,62 @@ export default function HomePage() {
                 CONTACT
               </Link>
             </nav>
-            <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6">
-              <Link href="/contact">GET STARTED</Link>
-            </Button>
+            <div className="flex items-center space-x-2">
+              <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-3 md:px-6 py-2 text-sm md:text-base">
+                <Link href="/contact">GET STARTED</Link>
+              </Button>
+              {/* Mobile menu button */}
+              <MobileNav />
+            </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-20">
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-7xl font-black mb-8 text-white leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-6 md:mb-8 text-white leading-tight">
             <span className="block">KEEP ROLLING.</span>
             <span className="block text-yellow-400">WE'LL HANDLE THE REST.</span>
           </h1>
-          <div className="bg-gray-800 border-l-4 border-yellow-400 p-6 max-w-4xl mx-auto mb-12">
-            <p className="text-xl text-gray-300">
+          <div className="bg-gray-800 border-l-4 border-yellow-400 p-4 md:p-6 max-w-4xl mx-auto mb-8 md:mb-12">
+            <p className="text-lg md:text-xl text-gray-300">
               <span className="text-yellow-400 font-bold">DRY VAN & REEFER SPECIALISTS</span> for USA Interstate and
               Cross-Border freight. Professional dispatch for FTL & LTL carriers who demand results.
             </p>
           </div>
 
           {/* Stats Grid */}
-          <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-12">
-            <div className="bg-gray-800 border-2 border-gray-700 p-6 rounded-lg">
-              <div className="text-3xl font-black text-yellow-400 mb-2">24/7</div>
-              <div className="text-gray-300 font-semibold">Support Available</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto mb-8 md:mb-12">
+            <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
+              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">24/7</div>
+              <div className="text-sm md:text-base text-gray-300 font-semibold">Support Available</div>
             </div>
-            <div className="bg-gray-800 border-2 border-gray-700 p-6 rounded-lg">
-              <div className="text-3xl font-black text-yellow-400 mb-2">15%</div>
-              <div className="text-gray-300 font-semibold">Higher Rates</div>
+            <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
+              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">15%</div>
+              <div className="text-sm md:text-base text-gray-300 font-semibold">Higher Rates</div>
             </div>
-            <div className="bg-gray-800 border-2 border-gray-700 p-6 rounded-lg">
-              <div className="text-3xl font-black text-yellow-400 mb-2">95%</div>
-              <div className="text-gray-300 font-semibold">Load Acceptance</div>
+            <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
+              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">95%</div>
+              <div className="text-sm md:text-base text-gray-300 font-semibold">Load Acceptance</div>
             </div>
-            <div className="bg-gray-800 border-2 border-gray-700 p-6 rounded-lg">
-              <div className="text-3xl font-black text-yellow-400 mb-2">0</div>
-              <div className="text-gray-300 font-semibold">Setup Fees</div>
+            <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
+              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">0</div>
+              <div className="text-sm md:text-base text-gray-300 font-semibold">Setup Fees</div>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black px-10 py-4 text-xl">
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center px-4">
+            <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black px-6 md:px-10 py-3 md:py-4 text-lg md:text-xl">
               <Link href="/contact" className="flex items-center">
                 GET STARTED NOW
-                <ArrowRight className="ml-2 h-6 w-6" />
+                <ArrowRight className="ml-2 h-5 w-5 md:h-6 md:w-6" />
               </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-gray-900 font-black px-10 py-4 text-xl bg-transparent"
+              className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-gray-900 font-black px-6 md:px-10 py-3 md:py-4 text-lg md:text-xl bg-transparent"
             >
               <Link href="/services" className="flex items-center">
                 VIEW SERVICES
@@ -166,28 +171,28 @@ export default function HomePage() {
       </section>
 
       {/* Services Preview */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-12 md:py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-black text-center mb-16 text-white">
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-12 md:mb-16 text-white">
               OUR <span className="text-yellow-400">SERVICES</span>
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               <Card className="bg-gray-800 border-2 border-gray-700 hover:border-yellow-400 transition-colors">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-black text-yellow-400 mb-4">BASIC</h3>
-                  <p className="text-4xl font-black text-white mb-4">PAY PER LOAD</p>
-                  <ul className="space-y-3 mb-8">
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                <CardContent className="p-6 md:p-8">
+                  <h3 className="text-xl md:text-2xl font-black text-yellow-400 mb-4">BASIC</h3>
+                  <p className="text-2xl md:text-4xl font-black text-white mb-4">PAY PER LOAD</p>
+                  <ul className="space-y-3 mb-6 md:mb-8">
+                    <li className="flex items-center text-gray-300 text-sm md:text-base">
+                      <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 mr-3 flex-shrink-0" />
                       Load finding & booking
                     </li>
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    <li className="flex items-center text-gray-300 text-sm md:text-base">
+                      <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 mr-3 flex-shrink-0" />
                       Rate negotiation
                     </li>
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    <li className="flex items-center text-gray-300 text-sm md:text-base">
+                      <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 mr-3 flex-shrink-0" />
                       Basic support
                     </li>
                   </ul>
@@ -198,27 +203,27 @@ export default function HomePage() {
               </Card>
 
               <Card className="bg-gray-800 border-2 border-yellow-400">
-                <CardContent className="p-8">
-                  <div className="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-black mb-4 inline-block">
+                <CardContent className="p-6 md:p-8">
+                  <div className="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs md:text-sm font-black mb-4 inline-block">
                     MOST POPULAR
                   </div>
-                  <h3 className="text-2xl font-black text-yellow-400 mb-4">PREMIUM</h3>
-                  <p className="text-4xl font-black text-white mb-4">FULL SERVICE</p>
-                  <ul className="space-y-3 mb-8">
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                  <h3 className="text-xl md:text-2xl font-black text-yellow-400 mb-4">PREMIUM</h3>
+                  <p className="text-2xl md:text-4xl font-black text-white mb-4">FULL SERVICE</p>
+                  <ul className="space-y-3 mb-6 md:mb-8">
+                    <li className="flex items-center text-gray-300 text-sm md:text-base">
+                      <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 mr-3 flex-shrink-0" />
                       Everything in Basic
                     </li>
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    <li className="flex items-center text-gray-300 text-sm md:text-base">
+                      <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 mr-3 flex-shrink-0" />
                       24/7 support
                     </li>
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    <li className="flex items-center text-gray-300 text-sm md:text-base">
+                      <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 mr-3 flex-shrink-0" />
                       Paperwork handling
                     </li>
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    <li className="flex items-center text-gray-300 text-sm md:text-base">
+                      <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 mr-3 flex-shrink-0" />
                       Route optimization
                     </li>
                   </ul>
@@ -229,20 +234,20 @@ export default function HomePage() {
               </Card>
 
               <Card className="bg-gray-800 border-2 border-gray-700 hover:border-yellow-400 transition-colors">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-black text-yellow-400 mb-4">CUSTOM</h3>
-                  <p className="text-4xl font-black text-white mb-4">FLEET SOLUTIONS</p>
-                  <ul className="space-y-3 mb-8">
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                <CardContent className="p-6 md:p-8">
+                  <h3 className="text-xl md:text-2xl font-black text-yellow-400 mb-4">CUSTOM</h3>
+                  <p className="text-2xl md:text-4xl font-black text-white mb-4">FLEET SOLUTIONS</p>
+                  <ul className="space-y-3 mb-6 md:mb-8">
+                    <li className="flex items-center text-gray-300 text-sm md:text-base">
+                      <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 mr-3 flex-shrink-0" />
                       Everything in Premium
                     </li>
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    <li className="flex items-center text-gray-300 text-sm md:text-base">
+                      <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 mr-3 flex-shrink-0" />
                       Dedicated dispatcher
                     </li>
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="h-5 w-5 text-yellow-400 mr-3" />
+                    <li className="flex items-center text-gray-300 text-sm md:text-base">
+                      <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 mr-3 flex-shrink-0" />
                       Custom reporting
                     </li>
                   </ul>
@@ -302,27 +307,27 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-yellow-400 to-yellow-500">
+      <section className="py-12 md:py-20 bg-gradient-to-r from-yellow-400 to-yellow-500">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-black mb-6 text-gray-900">STOP CHASING LOADS. START MAKING MONEY.</h2>
-          <p className="text-xl mb-8 text-gray-800 font-medium max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-black mb-4 md:mb-6 text-gray-900">STOP CHASING LOADS. START MAKING MONEY.</h2>
+          <p className="text-lg md:text-xl mb-6 md:mb-8 text-gray-800 font-medium max-w-3xl mx-auto">
             Join hundreds of owner-operators and small fleets who trust us to keep their trucks moving and profitable.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" className="bg-gray-900 hover:bg-gray-800 text-yellow-400 font-black px-10 py-4 text-xl">
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
+            <Button size="lg" className="bg-gray-900 hover:bg-gray-800 text-yellow-400 font-black px-6 md:px-10 py-3 md:py-4 text-lg md:text-xl">
               <Link href="/contact" className="flex items-center">
-                <Phone className="h-6 w-6 mr-2" />
+                <Phone className="h-5 w-5 md:h-6 md:w-6 mr-2" />
                 CALL 647-362-6649
               </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-yellow-400 font-black px-10 py-4 text-xl bg-transparent"
+              className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-yellow-400 font-black px-6 md:px-10 py-3 md:py-4 text-lg md:text-xl bg-transparent"
             >
               <Link href="/contact" className="flex items-center">
                 GET STARTED TODAY
-                <ArrowRight className="ml-2 h-6 w-6" />
+                <ArrowRight className="ml-2 h-5 w-5 md:h-6 md:w-6" />
               </Link>
             </Button>
           </div>
