@@ -13,6 +13,8 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Header */}
+      <header className="bg-gray-800 border-b-2 border-yellow-400 sticky top-0 z-50">
+        
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C5QW4MHEM7"></script>
 <script>
@@ -22,7 +24,7 @@ export default function HomePage() {
 
   gtag('config', 'G-C5QW4MHEM7');
 </script>
-      <header className="bg-gray-800 border-b-2 border-yellow-400 sticky top-0 z-50">
+
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
