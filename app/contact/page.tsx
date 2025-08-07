@@ -60,20 +60,20 @@ export default function ContactPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-16">
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-black mb-6 text-white">
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-black mb-4 md:mb-6 text-white">
               GET <span className="text-yellow-400">STARTED</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
               Ready to stop chasing loads? Contact us today and start earning more with professional dispatch.
             </p>
             <Link
               href="/"
               className="inline-flex items-center text-yellow-400 hover:text-yellow-300 font-semibold transition-colors"
             >
-              <ArrowLeft className="h-5 w-5 mr-2" />
+              <ArrowLeft className="h-4 w-4 md:h-5 md:w-5 mr-2" />
               Back to Home
             </Link>
           </div>
@@ -81,64 +81,64 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Methods */}
-      <section className="py-20 bg-gray-800">
+      <section className="py-12 md:py-20 bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-black text-center mb-16 text-white">
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-12 md:mb-16 text-white">
               MULTIPLE WAYS TO <span className="text-yellow-400">REACH US</span>
             </h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12 md:mb-16">
               <Card className="bg-gray-900 border-2 border-yellow-400 hover:scale-105 transition-transform">
-                <CardContent className="p-8 text-center">
-                  <div className="bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                    <Phone className="h-8 w-8 text-gray-900" />
+                <CardContent className="p-6 md:p-8 text-center">
+                  <div className="bg-yellow-400 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
+                    <Phone className="h-6 w-6 md:h-8 md:w-8 text-gray-900" />
                   </div>
-                  <h3 className="text-xl font-black text-white mb-4">CALL</h3>
-                  <p className="text-2xl font-bold text-yellow-400 mb-2">647-362-6649</p>
-                  <p className="text-gray-400">Fastest way to get started</p>
+                  <h3 className="text-lg md:text-xl font-black text-white mb-4">CALL</h3>
+                  <p className="text-lg md:text-2xl font-bold text-yellow-400 mb-2">647-362-6649</p>
+                  <p className="text-sm md:text-base text-gray-400">Fastest way to get started</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 hover:scale-105 transition-all">
-                <CardContent className="p-8 text-center">
+                <CardContent className="p-6 md:p-8 text-center">
                   <a
                     href="https://wa.me/16473626649"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block h-full"
                   >
-                    <div className="bg-gray-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                      <MessageSquare className="h-8 w-8 text-white" />
+                    <div className="bg-gray-700 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
+                      <MessageSquare className="h-6 w-6 md:h-8 md:w-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-black text-white mb-4">WHATSAPP</h3>
-                    <p className="text-2xl font-bold text-white mb-2">647-362-6649</p>
-                    <p className="text-gray-400">Quick questions & updates</p>
+                    <h3 className="text-lg md:text-xl font-black text-white mb-4">WHATSAPP</h3>
+                    <p className="text-lg md:text-2xl font-bold text-white mb-2">647-362-6649</p>
+                    <p className="text-sm md:text-base text-gray-400">Quick questions & updates</p>
                   </a>
                 </CardContent>
               </Card>
 
               <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 hover:scale-105 transition-all">
-                <CardContent className="p-6 text-center flex flex-col items-center justify-center">
-                  <div className="bg-gray-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                    <Mail className="h-8 w-8 text-white" />
+                <CardContent className="p-4 md:p-6 text-center flex flex-col items-center justify-center">
+                  <div className="bg-gray-700 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
+                    <Mail className="h-6 w-6 md:h-8 md:w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-black text-white mb-4">EMAIL</h3>
-                  <p className="text-lg font-bold text-white mb-2 text-center whitespace-nowrap">
+                  <h3 className="text-lg md:text-xl font-black text-white mb-4">EMAIL</h3>
+                  <p className="text-sm md:text-lg font-bold text-white mb-2 text-center break-all">
                     solutions@dispatching.pro
                   </p>
-                  <p className="text-gray-400">Detailed inquiries</p>
+                  <p className="text-sm md:text-base text-gray-400">Detailed inquiries</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 hover:scale-105 transition-all">
-                <CardContent className="p-8 text-center">
-                  <div className="bg-gray-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                    <Clock className="h-8 w-8 text-white" />
+                <CardContent className="p-6 md:p-8 text-center">
+                  <div className="bg-gray-700 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
+                    <Clock className="h-6 w-6 md:h-8 md:w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-black text-white mb-4">AVAILABILITY</h3>
-                  <p className="text-2xl font-bold text-yellow-400 mb-2">24/7</p>
-                  <p className="text-gray-400">We're always here</p>
+                  <h3 className="text-lg md:text-xl font-black text-white mb-4">AVAILABILITY</h3>
+                  <p className="text-lg md:text-2xl font-bold text-yellow-400 mb-2">24/7</p>
+                  <p className="text-sm md:text-base text-gray-400">We're always here</p>
                 </CardContent>
               </Card>
             </div>
@@ -147,23 +147,23 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-12 md:py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
               <div>
-                <h2 className="text-4xl font-black mb-8 text-white">
+                <h2 className="text-3xl md:text-4xl font-black mb-6 md:mb-8 text-white">
                   SEND US A <span className="text-yellow-400">MESSAGE</span>
                 </h2>
-                <p className="text-xl text-gray-300 mb-8">
+                <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
                   Fill out the form and we'll get back to you within the hour. Include your MC number and equipment type
                   for faster service.
                 </p>
 
-                <div className="space-y-6">
-                  <div className="bg-gray-800 border-l-4 border-yellow-400 p-6">
+                <div className="space-y-4 md:space-y-6">
+                  <div className="bg-gray-800 border-l-4 border-yellow-400 p-4 md:p-6">
                     <h3 className="text-white font-bold mb-2">What to Include:</h3>
-                    <ul className="text-gray-300 space-y-1">
+                    <ul className="text-gray-300 space-y-1 text-sm md:text-base">
                       <li>• Your MC number</li>
                       <li>• Equipment type (Dry Van, Reefer, etc.)</li>
                       <li>• Current location</li>
@@ -172,9 +172,9 @@ export default function ContactPage() {
                     </ul>
                   </div>
 
-                  <div className="bg-gray-800 border-l-4 border-yellow-400 p-6">
+                  <div className="bg-gray-800 border-l-4 border-yellow-400 p-4 md:p-6">
                     <h3 className="text-white font-bold mb-2">Response Time:</h3>
-                    <p className="text-gray-300">
+                    <p className="text-gray-300 text-sm md:text-base">
                       We typically respond within 1 hour during business hours, and within 4 hours on weekends and
                       holidays.
                     </p>
@@ -183,11 +183,11 @@ export default function ContactPage() {
               </div>
 
               <Card className="bg-gray-800 border-2 border-gray-700">
-                <CardContent className="p-8">
-                  <form className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
+                <CardContent className="p-6 md:p-8">
+                  <form className="space-y-4 md:space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="firstName" className="block text-white font-bold mb-2">
+                        <label htmlFor="firstName" className="block text-white font-bold mb-2 text-sm md:text-base">
                           First Name *
                         </label>
                         <Input
@@ -198,7 +198,7 @@ export default function ContactPage() {
                         />
                       </div>
                       <div>
-                        <label htmlFor="lastName" className="block text-white font-bold mb-2">
+                        <label htmlFor="lastName" className="block text-white font-bold mb-2 text-sm md:text-base">
                           Last Name *
                         </label>
                         <Input
@@ -211,7 +211,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className="block text-white font-bold mb-2">
+                      <label htmlFor="phone" className="block text-white font-bold mb-2 text-sm md:text-base">
                         Phone Number *
                       </label>
                       <Input
@@ -223,7 +223,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-white font-bold mb-2">
+                      <label htmlFor="email" className="block text-white font-bold mb-2 text-sm md:text-base">
                         Email Address *
                       </label>
                       <Input
@@ -234,9 +234,9 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="mcNumber" className="block text-white font-bold mb-2">
+                        <label htmlFor="mcNumber" className="block text-white font-bold mb-2 text-sm md:text-base">
                           MC Number
                         </label>
                         <Input
@@ -246,10 +246,10 @@ export default function ContactPage() {
                         />
                       </div>
                       <div>
-                        <label htmlFor="equipment" className="block text-white font-bold mb-2">
+                        <label htmlFor="equipment" className="block text-white font-bold mb-2 text-sm md:text-base">
                           Equipment Type
                         </label>
-                        <select className="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:border-yellow-400 focus:outline-none">
+                        <select className="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:border-yellow-400 focus:outline-none text-sm md:text-base">
                           <option value="">Select Equipment</option>
                           <option value="dry-van">Dry Van</option>
                           <option value="reefer">Reefer</option>
@@ -262,10 +262,10 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="service" className="block text-white font-bold mb-2">
+                      <label htmlFor="service" className="block text-white font-bold mb-2 text-sm md:text-base">
                         Service Interest
                       </label>
-                      <select className="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:border-yellow-400 focus:outline-none">
+                      <select className="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:border-yellow-400 focus:outline-none text-sm md:text-base">
                         <option value="">Select Service</option>
                         <option value="basic">Basic - Pay Per Load</option>
                         <option value="premium">Premium - Full Service</option>
@@ -275,10 +275,10 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="serviceArea" className="block text-white font-bold mb-2">
+                      <label htmlFor="serviceArea" className="block text-white font-bold mb-2 text-sm md:text-base">
                         Service Area
                       </label>
-                      <select className="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:border-yellow-400 focus:outline-none">
+                      <select className="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:border-yellow-400 focus:outline-none text-sm md:text-base">
                         <option value="">Select Service Area</option>
                         <option value="usa-interstate">USA Interstate</option>
                         <option value="cross-border">Cross-Border</option>
@@ -287,20 +287,20 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-white font-bold mb-2">
+                      <label htmlFor="message" className="block text-white font-bold mb-2 text-sm md:text-base">
                         Message
                       </label>
                       <Textarea
                         id="message"
                         rows={4}
                         placeholder="Tell us about your operation, current location, preferred lanes, or any questions you have..."
-                        className="bg-gray-700 border-gray-600 text-white focus:border-yellow-400"
+                        className="bg-gray-700 border-gray-600 text-white focus:border-yellow-400 text-sm md:text-base"
                       />
                     </div>
 
                     <Button
                       type="submit"
-                      className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black py-3 text-lg"
+                      className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black py-3 text-base md:text-lg"
                     >
                       SEND MESSAGE
                     </Button>
