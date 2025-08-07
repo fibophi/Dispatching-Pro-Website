@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Truck, Calendar, User, ArrowRight, TrendingUp, AlertCircle, Fuel, Route } from 'lucide-react'
+import { MobileNav } from '@/components/mobile-nav'
 
 export const metadata = {
   title: "Industry Blog - Dispatching.Pro",
@@ -124,11 +125,11 @@ export default function BlogPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="bg-yellow-400 p-2 rounded-lg">
-                <Truck className="h-7 w-7 text-gray-900" />
+                <Truck className="h-6 w-6 md:h-7 md:w-7 text-gray-900" />
               </div>
               <div>
-                <span className="text-2xl font-black text-white tracking-tight">DISPATCHING</span>
-                <span className="text-2xl font-black text-yellow-400">.PRO</span>
+                <span className="text-lg md:text-2xl font-black text-white tracking-tight">DISPATCHING</span>
+                <span className="text-lg md:text-2xl font-black text-yellow-400">.PRO</span>
               </div>
             </div>
             <nav className="hidden md:flex space-x-8">
@@ -157,9 +158,12 @@ export default function BlogPage() {
                 CONTACT
               </Link>
             </nav>
-            <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6">
-              <Link href="/contact">GET STARTED</Link>
-            </Button>
+            <div className="flex items-center space-x-2">
+              <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-3 md:px-6 py-2 text-sm md:text-base">
+                <Link href="/contact">GET STARTED</Link>
+              </Button>
+              <MobileNav />
+            </div>
           </div>
         </div>
       </header>
