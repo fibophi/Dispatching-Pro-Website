@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://dispatching.pro/sitemap.xml
+
+# Block admin or sensitive areas (if any in future)
+# Disallow: /admin/
+# Disallow: /api/
