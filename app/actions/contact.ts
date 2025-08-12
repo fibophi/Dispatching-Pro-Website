@@ -1,8 +1,6 @@
 "use server"
 
-import { Resend } from "resend"
-
-const resend = new Resend(process.env.RESEND_API_KEY)
+import nodemailer from "nodemailer"
 
 export async function submitContactForm(formData: FormData) {
   try {
@@ -32,10 +30,19 @@ export async function submitContactForm(formData: FormData) {
       return { success: false, error: "Please complete the captcha verification." }
     }
 
-    // Send email
-    const { data, error } = await resend.emails.send({
-      from: "Contact Form <noreply@dispatching.pro>",
-      to: ["solutions@dispatching.pro"],
+    const transporter = nodemailer.createTransporter({
+      host: process.env.SMTP_HOST,
+      port: Number.parseInt(process.env.SMTP_PORT || "587"),
+      secure: process.env.SMTP_PORT === "465", // true for 465, false for other ports
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD,
+      },
+    })
+
+    await transporter.sendMail({
+      from: `"Dispatching.pro Contact Form" <${process.env.SMTP_USER}>`,
+      to: "solutions@dispatching.pro",
       subject: `New Contact Form Submission - ${firstName} ${lastName}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -53,11 +60,6 @@ export async function submitContactForm(formData: FormData) {
         <p><em>Submitted from dispatching.pro contact form</em></p>
       `,
     })
-
-    if (error) {
-      console.error("Email sending error:", error)
-      return { success: false, error: "Failed to send message. Please try again or call us directly." }
-    }
 
     return { success: true, message: "Message sent successfully! We'll get back to you within the hour." }
   } catch (error) {
