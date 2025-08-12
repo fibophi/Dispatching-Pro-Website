@@ -1,14 +1,14 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Truck, ArrowLeft, Phone, Mail, Clock, MessageSquare } from 'lucide-react'
-import { MobileNav } from '@/components/mobile-nav'
+import { Truck, ArrowLeft, Phone, Mail, Clock, MessageSquare } from "lucide-react"
+import { MobileNav } from "@/components/mobile-nav"
+import { ContactForm } from "@/components/contact-form"
 
 export const metadata = {
   title: "Contact Us - Dispatching.Pro",
-  description: "Ready to get started? Contact us by phone, WhatsApp, or email. Available 24/7 to help you find high-paying loads.",
+  description:
+    "Ready to get started? Contact us by phone, WhatsApp, or email. Available 24/7 to help you find high-paying loads.",
 }
 
 export default function ContactPage() {
@@ -178,131 +178,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <Card className="bg-gray-800 border-2 border-gray-700">
-                <CardContent className="p-6 md:p-8">
-                  <form className="space-y-4 md:space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="firstName" className="block text-white font-bold mb-2 text-sm md:text-base">
-                          First Name *
-                        </label>
-                        <Input
-                          id="firstName"
-                          type="text"
-                          required
-                          className="bg-gray-700 border-gray-600 text-white focus:border-yellow-400"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="lastName" className="block text-white font-bold mb-2 text-sm md:text-base">
-                          Last Name *
-                        </label>
-                        <Input
-                          id="lastName"
-                          type="text"
-                          required
-                          className="bg-gray-700 border-gray-600 text-white focus:border-yellow-400"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="phone" className="block text-white font-bold mb-2 text-sm md:text-base">
-                        Phone Number *
-                      </label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        required
-                        className="bg-gray-700 border-gray-600 text-white focus:border-yellow-400"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="email" className="block text-white font-bold mb-2 text-sm md:text-base">
-                        Email Address *
-                      </label>
-                      <Input
-                        id="email"
-                        type="email"
-                        required
-                        className="bg-gray-700 border-gray-600 text-white focus:border-yellow-400"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="mcNumber" className="block text-white font-bold mb-2 text-sm md:text-base">
-                          MC Number
-                        </label>
-                        <Input
-                          id="mcNumber"
-                          type="text"
-                          className="bg-gray-700 border-gray-600 text-white focus:border-yellow-400"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="equipment" className="block text-white font-bold mb-2 text-sm md:text-base">
-                          Equipment Type
-                        </label>
-                        <select className="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:border-yellow-400 focus:outline-none text-sm md:text-base">
-                          <option value="">Select Equipment</option>
-                          <option value="dry-van">Dry Van</option>
-                          <option value="reefer">Reefer</option>
-                          <option value="flatbed">Flatbed</option>
-                          <option value="step-deck">Step Deck</option>
-                          <option value="power-only">Power Only</option>
-                          <option value="other">Other</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="service" className="block text-white font-bold mb-2 text-sm md:text-base">
-                        Service Interest
-                      </label>
-                      <select className="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:border-yellow-400 focus:outline-none text-sm md:text-base">
-                        <option value="">Select Service</option>
-                        <option value="basic">Basic - Pay Per Load</option>
-                        <option value="premium">Premium - Full Service</option>
-                        <option value="custom">Custom - Fleet Solutions</option>
-                        <option value="not-sure">Not Sure Yet</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="serviceArea" className="block text-white font-bold mb-2 text-sm md:text-base">
-                        Service Area
-                      </label>
-                      <select className="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:border-yellow-400 focus:outline-none text-sm md:text-base">
-                        <option value="">Select Service Area</option>
-                        <option value="usa-interstate">USA Interstate</option>
-                        <option value="cross-border">Cross-Border</option>
-                        <option value="both">Both USA Interstate & Cross-Border</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="message" className="block text-white font-bold mb-2 text-sm md:text-base">
-                        Message
-                      </label>
-                      <Textarea
-                        id="message"
-                        rows={4}
-                        placeholder="Tell us about your operation, current location, preferred lanes, or any questions you have..."
-                        className="bg-gray-700 border-gray-600 text-white focus:border-yellow-400 text-sm md:text-base"
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black py-3 text-base md:text-lg"
-                    >
-                      SEND MESSAGE
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
+              <ContactForm />
             </div>
           </div>
         </div>
