@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Truck, ArrowLeft, Phone, Mail, Clock, MessageSquare, CheckCircle, AlertCircle } from "lucide-react"
 import { MobileNav } from "@/components/mobile-nav"
 import { useState, useEffect } from "react"
+// Fixed import to use correct TypeScript file without extension
 import { submitContactForm } from "./actions"
 
 declare global {
