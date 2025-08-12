@@ -493,7 +493,7 @@ export default function ContactPageClient() {
                     <div className="flex justify-center">
                       <div
                         className="g-recaptcha"
-                        data-sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                        data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "YOUR_RECAPTCHA_SITE_KEY"}
                         data-callback="onCaptchaSuccess"
                         data-theme="dark"
                       ></div>
