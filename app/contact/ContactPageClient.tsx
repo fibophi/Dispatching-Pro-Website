@@ -1,0 +1,623 @@
+"use client"
+
+import type React from "react"
+
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Truck, ArrowLeft, Phone, Mail, Clock, MessageSquare, CheckCircle, AlertCircle } from "lucide-react"
+import { MobileNav } from "@/components/mobile-nav"
+import { useState, useEffect } from "react"
+import { submitContactForm } from "./actions"
+
+declare global {
+  interface Window {
+    grecaptcha: any
+    onCaptchaSuccess: (token: string) => void
+  }
+}
+
+export default function ContactPageClient() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    mcNumber: "",
+    equipment: "",
+    service: "",
+    serviceArea: "",
+    message: "",
+  })
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
+  // Added form validation state
+  const [errors, setErrors] = useState<Record<string, string>>({})
+
+  useEffect(() => {
+    // Set up the global callback function
+    window.onCaptchaSuccess = (token: string) => {
+      setCaptchaToken(token)
+    }
+
+    return () => {
+      // Cleanup
+      delete window.onCaptchaSuccess
+    }
+  }, [])
+
+  // Added form validation function
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {}
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required"
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last name is required"
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required"
+    } else if (!/^\+?[\d\s\-$$$$]{10,}$/.test(formData.phone.trim())) {
+      newErrors.phone = "Please enter a valid phone number"
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email address is required"
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      newErrors.email = "Please enter a valid email address"
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }))
+    }
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    // Added form validation before submission
+    if (!validateForm()) {
+      return
+    }
+
+    if (!captchaToken) {
+      alert("Please complete the captcha verification")
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitStatus("idle")
+
+    try {
+      const result = await submitContactForm(formData, captchaToken)
+
+      if (result.success) {
+        setSubmitStatus("success")
+        setFormData({
+          firstName: "",
+          lastName: "",
+          phone: "",
+          email: "",
+          mcNumber: "",
+          equipment: "",
+          service: "",
+          serviceArea: "",
+          message: "",
+        })
+        setCaptchaToken(null)
+        // Clear errors on successful submission
+        setErrors({})
+        // Reset reCAPTCHA
+        if (window.grecaptcha) {
+          window.grecaptcha.reset()
+        }
+      } else {
+        setSubmitStatus("error")
+      }
+    } catch (error) {
+      setSubmitStatus("error")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-900">
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+      {/* Header */}
+      <header className="bg-gray-800 border-b-2 border-yellow-400 sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="bg-yellow-400 p-2 rounded-lg">
+                <Truck className="h-6 w-6 md:h-7 md:w-7 text-gray-900" />
+              </div>
+              <div>
+                <span className="text-lg md:text-2xl font-black text-white tracking-tight">DISPATCHING</span>
+                <span className="text-lg md:text-2xl font-black text-yellow-400">.PRO</span>
+              </div>
+            </div>
+            <nav className="hidden md:flex space-x-8">
+              <Link href="/" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+                HOME
+              </Link>
+              <Link href="/services" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+                SERVICES
+              </Link>
+              <Link
+                href="/why-choose-us"
+                className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors"
+              >
+                WHY US
+              </Link>
+              <Link
+                href="/how-it-works"
+                className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors"
+              >
+                HOW IT WORKS
+              </Link>
+              <Link href="/blog" className="text-gray-300 hover:text-yellow-400 font-semibold transition-colors">
+                NEWS
+              </Link>
+              <Link href="/contact" className="text-white font-semibold border-b-2 border-yellow-400 pb-1">
+                CONTACT
+              </Link>
+            </nav>
+            <div className="flex items-center space-x-2">
+              <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-3 md:px-6 py-2 text-sm md:text-base">
+                <Link href="/contact">GET STARTED</Link>
+              </Button>
+              <MobileNav />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 md:py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-black mb-4 md:mb-6 text-white">
+              GET <span className="text-yellow-400">STARTED</span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
+              Ready to stop chasing loads? Contact us today and start earning more with professional dispatch.
+            </p>
+            <Link
+              href="/"
+              className="inline-flex items-center text-yellow-400 hover:text-yellow-300 font-semibold transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4 md:h-5 md:w-5 mr-2" />
+              Back to Home
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Methods */}
+      <section className="py-12 md:py-20 bg-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-12 md:mb-16 text-white">
+              MULTIPLE WAYS TO <span className="text-yellow-400">REACH US</span>
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+              {/* Combined Call/WhatsApp Box */}
+              <Card className="bg-gray-900 border-2 border-yellow-400 hover:scale-105 transition-transform">
+                <CardContent className="p-6 md:p-8 text-center">
+                  <div className="bg-yellow-400 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
+                    <Phone className="h-6 w-6 md:h-8 md:w-8 text-gray-900" />
+                  </div>
+                  <h3 className="text-lg md:text-xl font-black text-white mb-4">CALL / WHATSAPP</h3>
+                  <p className="text-lg md:text-2xl font-bold text-yellow-400 mb-2">647-362-6649</p>
+                  <p className="text-sm md:text-base text-gray-400 mb-2">Quickest & most efficient way</p>
+                  <div className="flex items-center justify-center gap-2 text-xs md:text-sm text-gray-300">
+                    <Phone className="h-3 w-3 md:h-4 md:w-4" />
+                    <span>Call</span>
+                    <span>•</span>
+                    <MessageSquare className="h-3 w-3 md:h-4 md:w-4" />
+                    <span>WhatsApp</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Email Box */}
+              <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 hover:scale-105 transition-all">
+                <CardContent className="p-4 md:p-6 text-center flex flex-col items-center justify-center">
+                  <div className="bg-gray-700 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
+                    <Mail className="h-6 w-6 md:h-8 md:w-8 text-white" />
+                  </div>
+                  <h3 className="text-lg md:text-xl font-black text-white mb-4">EMAIL</h3>
+                  <p className="text-sm md:text-lg font-bold text-white mb-2 text-center break-all">
+                    solutions@dispatching.pro
+                  </p>
+                  <p className="text-sm md:text-base text-gray-400">Detailed inquiries</p>
+                </CardContent>
+              </Card>
+
+              {/* Availability Box */}
+              <Card className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 hover:scale-105 transition-all">
+                <CardContent className="p-6 md:p-8 text-center">
+                  <div className="bg-gray-700 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4 md:mb-6">
+                    <Clock className="h-6 w-6 md:h-8 md:w-8 text-white" />
+                  </div>
+                  <h3 className="text-lg md:text-xl font-black text-white mb-4">AVAILABILITY</h3>
+                  <p className="text-lg md:text-2xl font-bold text-yellow-400 mb-2">24/7</p>
+                  <p className="text-sm md:text-base text-gray-400">We're always here</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form */}
+      <section className="py-12 md:py-20 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-black mb-6 md:mb-8 text-white">
+                  SEND US A <span className="text-yellow-400">MESSAGE</span>
+                </h2>
+                <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
+                  Fill out the form and we'll get back to you within the hour. Include your MC number and equipment type
+                  for faster service.
+                </p>
+
+                <div className="space-y-4 md:space-y-6">
+                  <div className="bg-gray-800 border-l-4 border-yellow-400 p-4 md:p-6">
+                    <h3 className="text-white font-bold mb-2">What to Include:</h3>
+                    <ul className="text-gray-300 space-y-1 text-sm md:text-base">
+                      <li>• Your MC number</li>
+                      <li>• Equipment type (Dry Van, Reefer, etc.)</li>
+                      <li>• Current location</li>
+                      <li>• Preferred lanes or areas</li>
+                      <li>• Any special requirements</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-gray-800 border-l-4 border-yellow-400 p-4 md:p-6">
+                    <h3 className="text-white font-bold mb-2">Response Time:</h3>
+                    <p className="text-gray-300 text-sm md:text-base">
+                      We typically respond within 1 hour during business hours, and within 4 hours on weekends and
+                      holidays.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <Card className="bg-gray-800 border-2 border-gray-700">
+                <CardContent className="p-6 md:p-8">
+                  {submitStatus === "success" && (
+                    <div className="mb-6 p-4 bg-green-900 border border-green-700 rounded-lg flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
+                      <div>
+                        <p className="text-green-400 font-semibold">Message sent successfully!</p>
+                        <p className="text-green-300 text-sm">We'll get back to you within the hour.</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {submitStatus === "error" && (
+                    <div className="mb-6 p-4 bg-red-900 border border-red-700 rounded-lg flex items-center">
+                      <AlertCircle className="h-5 w-5 text-red-400 mr-3" />
+                      <div>
+                        <p className="text-red-400 font-semibold">Failed to send message</p>
+                        <p className="text-red-300 text-sm">Please try again or call us directly.</p>
+                      </div>
+                    </div>
+                  )}
+
+                  <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="firstName" className="block text-white font-bold mb-2 text-sm md:text-base">
+                          First Name *
+                        </label>
+                        <Input
+                          id="firstName"
+                          name="firstName"
+                          type="text"
+                          required
+                          value={formData.firstName}
+                          onChange={handleInputChange}
+                          className={`bg-gray-700 border-gray-600 text-white focus:border-yellow-400 ${
+                            errors.firstName ? "border-red-500 focus:border-red-500" : ""
+                          }`}
+                        />
+                        {/* Added error message display */}
+                        {errors.firstName && <p className="text-red-400 text-sm mt-1">{errors.firstName}</p>}
+                      </div>
+                      <div>
+                        <label htmlFor="lastName" className="block text-white font-bold mb-2 text-sm md:text-base">
+                          Last Name *
+                        </label>
+                        <Input
+                          id="lastName"
+                          name="lastName"
+                          type="text"
+                          required
+                          value={formData.lastName}
+                          onChange={handleInputChange}
+                          className={`bg-gray-700 border-gray-600 text-white focus:border-yellow-400 ${
+                            errors.lastName ? "border-red-500 focus:border-red-500" : ""
+                          }`}
+                        />
+                        {/* Added error message display */}
+                        {errors.lastName && <p className="text-red-400 text-sm mt-1">{errors.lastName}</p>}
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="phone" className="block text-white font-bold mb-2 text-sm md:text-base">
+                        Phone Number *
+                      </label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        required
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className={`bg-gray-700 border-gray-600 text-white focus:border-yellow-400 ${
+                          errors.phone ? "border-red-500 focus:border-red-500" : ""
+                        }`}
+                      />
+                      {/* Added error message display */}
+                      {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
+                    </div>
+
+                    <div>
+                      <label htmlFor="email" className="block text-white font-bold mb-2 text-sm md:text-base">
+                        Email Address *
+                      </label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className={`bg-gray-700 border-gray-600 text-white focus:border-yellow-400 ${
+                          errors.email ? "border-red-500 focus:border-red-500" : ""
+                        }`}
+                      />
+                      {/* Added error message display */}
+                      {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="mcNumber" className="block text-white font-bold mb-2 text-sm md:text-base">
+                          MC Number
+                        </label>
+                        <Input
+                          id="mcNumber"
+                          name="mcNumber"
+                          type="text"
+                          value={formData.mcNumber}
+                          onChange={handleInputChange}
+                          className="bg-gray-700 border-gray-600 text-white focus:border-yellow-400"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="equipment" className="block text-white font-bold mb-2 text-sm md:text-base">
+                          Equipment Type
+                        </label>
+                        <select
+                          name="equipment"
+                          value={formData.equipment}
+                          onChange={handleInputChange}
+                          className="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:border-yellow-400 focus:outline-none text-sm md:text-base"
+                        >
+                          <option value="">Select Equipment</option>
+                          <option value="dry-van">Dry Van</option>
+                          <option value="reefer">Reefer</option>
+                          <option value="flatbed">Flatbed</option>
+                          <option value="step-deck">Step Deck</option>
+                          <option value="power-only">Power Only</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="service" className="block text-white font-bold mb-2 text-sm md:text-base">
+                        Service Interest
+                      </label>
+                      <select
+                        name="service"
+                        value={formData.service}
+                        onChange={handleInputChange}
+                        className="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:border-yellow-400 focus:outline-none text-sm md:text-base"
+                      >
+                        <option value="">Select Service</option>
+                        <option value="basic">Basic - Pay Per Load</option>
+                        <option value="premium">Premium - Full Service</option>
+                        <option value="custom">Custom - Fleet Solutions</option>
+                        <option value="not-sure">Not Sure Yet</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label htmlFor="serviceArea" className="block text-white font-bold mb-2 text-sm md:text-base">
+                        Service Area
+                      </label>
+                      <select
+                        name="serviceArea"
+                        value={formData.serviceArea}
+                        onChange={handleInputChange}
+                        className="w-full bg-gray-700 border border-gray-600 text-white rounded-md px-3 py-2 focus:border-yellow-400 focus:outline-none text-sm md:text-base"
+                      >
+                        <option value="">Select Service Area</option>
+                        <option value="usa-interstate">USA Interstate</option>
+                        <option value="cross-border">Cross-Border</option>
+                        <option value="both">Both USA Interstate & Cross-Border</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="block text-white font-bold mb-2 text-sm md:text-base">
+                        Message
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        rows={4}
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        placeholder="Tell us about your operation, current location, preferred lanes, or any questions you have..."
+                        className="bg-gray-700 border-gray-600 text-white focus:border-yellow-400 text-sm md:text-base"
+                      />
+                    </div>
+
+                    <div className="flex justify-center">
+                      <div
+                        className="g-recaptcha"
+                        data-sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                        data-callback="onCaptchaSuccess"
+                        data-theme="dark"
+                      ></div>
+                    </div>
+
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting || !captchaToken}
+                      className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black py-3 text-base md:text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Start Section */}
+      <section className="py-20 bg-gradient-to-r from-yellow-400 to-yellow-500">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-black mb-6 text-gray-900">NEED LOADS RIGHT NOW?</h2>
+          <p className="text-xl mb-8 text-gray-800 font-medium max-w-3xl mx-auto">
+            Don't wait for the form. Call or text us directly and we'll start working on your loads immediately.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Button size="lg" className="bg-gray-900 hover:bg-gray-800 text-yellow-400 font-black px-10 py-4 text-xl">
+              <Phone className="h-6 w-6 mr-2" />
+              CALL 647-362-6649
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-yellow-400 font-black px-10 py-4 text-xl bg-transparent"
+            >
+              <a
+                href="https://wa.me/16473626649"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center"
+              >
+                <MessageSquare className="h-6 w-6 mr-2" />
+                WhatsApp 647-362-6649
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 border-t-2 border-yellow-400 py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="bg-yellow-400 p-2 rounded-lg">
+                  <Truck className="h-6 w-6 text-gray-900" />
+                </div>
+                <div>
+                  <span className="text-xl font-black text-white">DISPATCHING</span>
+                  <span className="text-xl font-black text-yellow-400">.PRO</span>
+                </div>
+              </div>
+              <p className="text-gray-400">
+                Professional dispatch services for Dry Van & Reefer carriers running USA Interstate and Cross-Border
+                freight.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-black mb-4 text-white">SERVICES</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>
+                  <Link href="/services" className="hover:text-yellow-400 transition-colors">
+                    Basic Dispatch
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="hover:text-yellow-400 transition-colors">
+                    Premium Service
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="hover:text-yellow-400 transition-colors">
+                    Custom Solutions
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-black mb-4 text-white">COMPANY</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>
+                  <Link href="/why-choose-us" className="hover:text-yellow-400 transition-colors">
+                    Why Choose Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/how-it-works" className="hover:text-yellow-400 transition-colors">
+                    How It Works
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:text-yellow-400 transition-colors">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-black mb-4 text-white">CONTACT</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>Phone: 647-362-6649</li>
+                <li>Email: solutions@dispatching.pro</li>
+                <li className="text-yellow-400 font-bold">Available 24/7</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+            <p>&copy; 2025 Dispatching.Pro. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
