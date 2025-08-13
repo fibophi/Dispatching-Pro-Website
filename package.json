@@ -48,6 +48,7 @@
     "lucide-react": "^0.454.0",
     "next": "^15.4.6",
     "next-themes": "^0.4.6",
+    "nodemailer": "^6.9.8",
     "react": "^19.1.1",
     "react-day-picker": "9.8.0",
     "react-dom": "^19.1.1",
@@ -62,6 +63,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
+    "@types/nodemailer": "^6.4.14",
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -80,9 +82,6 @@
       "tailwindcss": "^4.1.11",
       "@tailwindcss/postcss": "^4.1.11"
     },
-    "onlyBuiltDependencies": [
-      "@tailwindcss/oxide",
-      "sharp"
-    ]
+    "onlyBuiltDependencies": ["@tailwindcss/oxide", "sharp"]
   }
 }
