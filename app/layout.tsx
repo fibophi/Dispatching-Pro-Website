@@ -38,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
       <head>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-C5QW4MHEM7"></script>
         <script
@@ -51,15 +51,8 @@ export default function RootLayout({
             `,
           }}
         />
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
-        `}</style>
       </head>
-      <body>{children}</body>
+      <body className={GeistSans.className}>{children}</body>
     </html>
   )
 }
