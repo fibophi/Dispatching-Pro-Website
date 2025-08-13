@@ -38,7 +38,7 @@ Submitted at: ${new Date().toLocaleString()}
     await transporter.sendMail({
       from: process.env.GMAIL_USER,
       to: "trincoinc@gmail.com",
-      subject: `New Contact Form Submission - ${formData.firstName} ${formData.lastName}`,
+      subject: `DISPATCHING.PRO New Contact Form Submission - ${formData.firstName} ${formData.lastName}`,
       text: emailContent,
       html: emailContent.replace(/\n/g, "<br>"),
     })
