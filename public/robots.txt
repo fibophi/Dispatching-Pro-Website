@@ -1,6 +1,11 @@
 User-agent: *
 Allow: /
 
+Disallow: /_next/static/
+Disallow: /favicon.ico
+Disallow: /*.woff2
+Disallow: /*.woff
+
 # Sitemap
 Sitemap: https://dispatching.pro/sitemap.xml
 
