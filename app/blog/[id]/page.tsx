@@ -1,11 +1,16 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Truck, Calendar, User, ArrowLeft, Share2, TrendingUp, MessageSquare, Phone } from 'lucide-react'
+import { Truck, Calendar, User, ArrowLeft, Share2, Phone } from "lucide-react"
 
-export const metadata = {
-  title: "Blog Post - Dispatching.Pro",
-  description: "Read the latest insights and tips from our dispatching experts.",
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  return {
+    title: "Blog Post - Dispatching.Pro",
+    description: "Read the latest insights and tips from our dispatching experts.",
+    alternates: {
+      canonical: `https://dispatching.pro/blog/${params.id}`,
+    },
+  }
 }
 
 // This would typically come from a database or CMS
@@ -48,23 +53,23 @@ const relatedPosts = [
     id: 2,
     title: "Cross-Border Freight: What You Need to Know",
     category: "Regulations",
-    readTime: "8 min read"
+    readTime: "8 min read",
   },
   {
     id: 3,
     title: "Fuel Costs Rising: How to Optimize Your Routes",
     category: "Cost Savings",
-    readTime: "6 min read"
+    readTime: "6 min read",
   },
   {
     id: 5,
     title: "Reefer vs Dry Van: Which is More Profitable?",
     category: "Equipment",
-    readTime: "10 min read"
-  }
+    readTime: "10 min read",
+  },
 ]
 
-export default function BlogPostPage() {
+export default function BlogPostPage({ params }: { params: { id: string } }) {
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Header */}
@@ -135,9 +140,7 @@ export default function BlogPostPage() {
                 {blogPost.category}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-white leading-tight">
-              {blogPost.title}
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-white leading-tight">{blogPost.title}</h1>
             <div className="flex items-center text-gray-400 mb-8">
               <Calendar className="h-5 w-5 mr-2" />
               <span className="mr-6">{blogPost.date}</span>
@@ -159,10 +162,10 @@ export default function BlogPostPage() {
       <section className="pb-16 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div 
+            <div
               className="prose prose-lg prose-invert max-w-none"
               style={{
-                color: '#d1d5db',
+                color: "#d1d5db",
               }}
               dangerouslySetInnerHTML={{ __html: blogPost.content }}
             />
@@ -204,7 +207,10 @@ export default function BlogPostPage() {
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {relatedPosts.map((post) => (
-                <Card key={post.id} className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 transition-colors">
+                <Card
+                  key={post.id}
+                  className="bg-gray-900 border-2 border-gray-700 hover:border-yellow-400 transition-colors"
+                >
                   <CardContent className="p-6">
                     <div className="mb-4">
                       <span className="bg-gray-700 text-yellow-400 px-3 py-1 rounded-full text-sm font-bold">
