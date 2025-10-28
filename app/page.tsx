@@ -1,12 +1,13 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Truck, Phone, Mail, MessageSquare, ArrowRight, CheckCircle, Clock, Users, TrendingUp } from 'lucide-react'
-import { MobileNav } from '@/components/mobile-nav'
+import { Truck, Phone, Mail, MessageSquare, ArrowRight, CheckCircle, Clock, Users, TrendingUp } from "lucide-react"
+import { MobileNav } from "@/components/mobile-nav"
 
 export const metadata = {
   title: "Dispatching.Pro - Professional Truck Dispatch Services",
-  description: "Professional dispatch services for Dry Van & Reefer carriers running USA Interstate and Cross-Border freight. 24/7 support, higher rates, no contracts.",
+  description:
+    "Professional dispatch services for Dry Van & Reefer carriers running USA Interstate and Cross-Border freight. 24/7 support, higher rates, no contracts.",
 }
 
 export default function HomePage() {
@@ -55,6 +56,11 @@ export default function HomePage() {
               <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-3 md:px-6 py-2 text-sm md:text-base">
                 <Link href="/contact">GET STARTED</Link>
               </Button>
+              <Button className="hidden md:block bg-green-600 hover:bg-green-700 text-white font-bold px-3 md:px-6 py-2 text-sm md:text-base">
+                <a href="https://app.dispatching.pro" target="_blank" rel="noopener noreferrer">
+                  MEMBERS
+                </a>
+              </Button>
               {/* Mobile menu button */}
               <MobileNav />
             </div>
@@ -83,11 +89,11 @@ export default function HomePage() {
               <div className="text-sm md:text-base text-gray-300 font-semibold">Support Available</div>
             </div>
             <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
-              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">15%</div>
+              <div className="text-2xl md:text-3xl font-bold text-yellow-400 mb-2">15%</div>
               <div className="text-sm md:text-base text-gray-300 font-semibold">Higher Rates</div>
             </div>
             <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
-              <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">95%</div>
+              <div className="text-2xl md:text-3xl font-bold text-yellow-400 mb-2">95%</div>
               <div className="text-sm md:text-base text-gray-300 font-semibold">Load Acceptance</div>
             </div>
             <div className="bg-gray-800 border-2 border-gray-700 p-4 md:p-6 rounded-lg">
@@ -97,7 +103,10 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center px-4">
-            <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black px-6 md:px-10 py-3 md:py-4 text-lg md:text-xl">
+            <Button
+              size="lg"
+              className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-black px-6 md:px-10 py-3 md:py-4 text-lg md:text-xl"
+            >
               <Link href="/contact" className="flex items-center">
                 GET STARTED NOW
                 <ArrowRight className="ml-2 h-5 w-5 md:h-6 md:w-6" />
@@ -278,7 +287,8 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-2xl font-black text-white mb-4">HIGHER RATES</h3>
                 <p className="text-gray-300 text-lg">
-                  Our network and negotiation skills get you 15% higher rates on average compared to load boards.
+                  Our network and negotiation skills get you <span className="font-bold">15%</span> higher rates on
+                  average compared to load boards.
                 </p>
               </div>
               <div className="text-center">
@@ -312,12 +322,17 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-12 md:py-20 bg-gradient-to-r from-yellow-400 to-yellow-500">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-4xl font-black mb-4 md:mb-6 text-gray-900">STOP CHASING LOADS. START MAKING MONEY.</h2>
+          <h2 className="text-2xl md:text-4xl font-black mb-4 md:mb-6 text-gray-900">
+            STOP CHASING LOADS. START MAKING MONEY.
+          </h2>
           <p className="text-lg md:text-xl mb-6 md:mb-8 text-gray-800 font-medium max-w-3xl mx-auto">
             Join hundreds of owner-operators and small fleets who trust us to keep their trucks moving and profitable.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
-            <Button size="lg" className="bg-gray-900 hover:bg-gray-800 text-yellow-400 font-black px-6 md:px-10 py-3 md:py-4 text-lg md:text-xl">
+            <Button
+              size="lg"
+              className="bg-gray-900 hover:bg-gray-800 text-yellow-400 font-black px-6 md:px-10 py-3 md:py-4 text-lg md:text-xl"
+            >
               <Link href="/contact" className="flex items-center">
                 <Phone className="h-5 w-5 md:h-6 md:w-6 mr-2" />
                 CALL 647-362-6649
