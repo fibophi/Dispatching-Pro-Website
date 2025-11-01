@@ -6,7 +6,6 @@ Disallow: /favicon.ico
 Disallow: /*.woff2
 Disallow: /*.woff
 Disallow: /&
-Disallow: /$
 
 # Sitemap
 Sitemap: https://dispatching.pro/sitemap.xml
